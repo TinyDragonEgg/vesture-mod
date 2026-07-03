@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/johnnys_hat",
+		"layer1": "vesture:item/johnnys_hat_overlay"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/imperial_crown_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/imperial_crown_on_head",
+		"layer1": "vesture:item/imperial_crown_gold_on_head"
+	}
+}

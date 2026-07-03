@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["SLS"],
+  "key": {"S": {"item": "minecraft:string"}, "L": {"item": "minecraft:leather"}},
+  "result": {"id": "vesture:cuff"}
+}

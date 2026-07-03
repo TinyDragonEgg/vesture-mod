@@ -1,0 +1,17 @@
+{
+	"display": {
+		"head": {
+			"translation": [0, 0, -0.5],
+			"scale": [1.21, 1.21, 1.41]
+		},
+		"gui": {
+            "rotation": [30, 225, 0],
+            "translation": [0, 0, -0.5],
+            "scale": [0.625, 0.625, 0.728]
+        }
+	},
+	"parent": "vesture:item/template_player_hat",
+	"textures": {
+		"layer0": "vesture:item/lucas_hat_on_head"
+	}
+}

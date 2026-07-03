@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:masonry_apron_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_mason",
+      "equipment_slot": "chest"
+    }
+  ]
+}

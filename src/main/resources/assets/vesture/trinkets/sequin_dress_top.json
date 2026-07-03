@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:sequin_dress_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:party_alex",
+      "equipment_slot": "chest"
+    }
+  ]
+}

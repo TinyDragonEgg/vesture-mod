@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:jungle_pelt_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_jungle",
+      "equipment_slot": "chest"
+    }
+  ]
+}

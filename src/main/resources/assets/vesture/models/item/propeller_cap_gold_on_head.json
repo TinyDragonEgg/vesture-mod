@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/propeller_cap_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/propeller_cap_on_head",
+		"layer1": "vesture:item/propeller_cap_gold_on_head"
+	}
+}

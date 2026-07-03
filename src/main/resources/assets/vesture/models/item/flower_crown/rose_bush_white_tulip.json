@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+		"layer0": "vesture:item/flower_crown/rose_bush_white_tulip",
+		"layer1": "vesture:item/flower_crown/rose_bush_white_tulip"
+	}
+}

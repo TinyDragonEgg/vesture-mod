@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:smithing_apron_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_armorer",
+      "equipment_slot": "chest"
+    }
+  ]
+}

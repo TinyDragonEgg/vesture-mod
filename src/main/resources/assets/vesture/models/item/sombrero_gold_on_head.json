@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/sombrero_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/sombrero_on_head",
+		"layer1": "vesture:item/sombrero_gold_on_head"
+	}
+}

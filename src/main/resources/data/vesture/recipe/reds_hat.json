@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["SSS", " W ", "LLL"],
+  "key": {"S": {"item": "minecraft:string"}, "W": {"item": "minecraft:white_wool"}, "L": {"item": "minecraft:leather"}},
+  "result": {"id": "vesture:reds_hat"}
+}

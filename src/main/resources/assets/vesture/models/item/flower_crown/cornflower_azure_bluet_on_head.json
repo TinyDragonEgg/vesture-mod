@@ -1,0 +1,8 @@
+{
+	"parent": "vesture:item/template_three_layer_player_hat",
+	"textures": {
+		"layer0": "vesture:item/flower_crown/cornflower_on_head",
+		"layer1": "vesture:item/flower_crown/azure_bluet_overlay_on_head",
+		"layer2": "vesture:item/flower_crown/band_on_head"
+	}
+}

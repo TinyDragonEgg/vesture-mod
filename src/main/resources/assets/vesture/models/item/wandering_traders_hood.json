@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/wandering_traders_hood",
+		"layer1": "vesture:item/wandering_traders_hood_overlay"
+	}
+}

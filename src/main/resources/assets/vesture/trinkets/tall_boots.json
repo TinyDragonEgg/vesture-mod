@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:tall_boots"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:alex",
+      "equipment_slot": "feet"
+    }
+  ]
+}

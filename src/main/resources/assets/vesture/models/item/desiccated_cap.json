@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/desiccated_cap",
+		"layer1": "vesture:item/desiccated_cap_overlay"
+	}
+}

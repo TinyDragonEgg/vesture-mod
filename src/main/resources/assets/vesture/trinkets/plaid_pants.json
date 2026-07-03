@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:plaid_pants"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:vindicator",
+      "equipment_slot": "legs"
+    }
+  ]
+}

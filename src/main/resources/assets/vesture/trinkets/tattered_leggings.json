@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:tattered_leggings"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:husk",
+      "equipment_slot": "legs"
+    }
+  ]
+}

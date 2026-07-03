@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:slacks"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:zuri_default",
+      "equipment_slot": "legs"
+    }
+  ]
+}

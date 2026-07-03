@@ -1,0 +1,12 @@
+{
+	"display": {
+		"head": {
+			"scale": [1.21, 1.16, 1.21],
+			"translation": [0, 0.5, 0]
+		}
+	},
+	"parent": "vesture:item/template_player_hat",
+	"textures": {
+	  	"layer0": "vesture:item/armorers_hat_on_head"
+	}
+}

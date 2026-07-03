@@ -1,0 +1,77 @@
+{
+	"parent": "minecraft:block/block",
+	"textures": {
+		"layer0": "vesture:item/witchs_hat_on_head",
+		"particle": "vesture:item/witchs_hat_on_head"
+	},
+	"elements": [
+		{
+			"name": "Layer1",
+			"from": [3, 0, 3],
+			"to": [13, 2, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 5, 5, 6], "texture": "#layer0"},
+				"east": {"uv": [0, 5, 5, 6], "texture": "#layer0"},
+				"south": {"uv": [0, 5, 5, 6], "texture": "#layer0"},
+				"west": {"uv": [0, 5, 5, 6], "texture": "#layer0"},
+				"up": {"uv": [0, 0, 5, 5], "texture": "#layer0"},
+				"down": {"uv": [5, 0, 10, 5], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Layer2",
+			"from": [4.5, 2, 4.5],
+			"to": [11.5, 6, 11.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [3.5, 9.5, 7, 11.5], "texture": "#layer0"},
+				"east": {"uv": [0, 9.5, 3.5, 11.5], "texture": "#layer0"},
+				"south": {"uv": [3.5, 9.5, 7, 11.5], "texture": "#layer0"},
+				"west": {"uv": [7, 9.5, 10.5, 11.5], "texture": "#layer0"},
+				"up": {"uv": [0, 6, 3.5, 9.5], "texture": "#layer0"},
+				"down": {"uv": [3.5, 6, 7, 9.5], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Layer3",
+			"from": [6, 6, 6],
+			"to": [10, 10, 10],
+			"rotation": {"angle": 0, "axis": "z", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [0, 15.5, 2, 13.5], "texture": "#layer0"},
+				"east": {"uv": [0, 15.5, 2, 13.5], "texture": "#layer0"},
+				"south": {"uv": [0, 15.5, 2, 13.5], "texture": "#layer0"},
+				"west": {"uv": [0, 15.5, 2, 13.5], "texture": "#layer0"},
+				"up": {"uv": [0, 13.5, 2, 11.5], "texture": "#layer0"},
+				"down": {"uv": [2, 13.5, 4, 11.5], "texture": "#layer0"}
+			}
+		},
+		{
+			"name": "Layer4",
+			"from": [7.5, 10, 7.5],
+			"to": [8.5, 12, 8.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 0, 8]},
+			"faces": {
+				"north": {"uv": [10.5, 13, 11, 14], "texture": "#layer0"},
+				"east": {"uv": [10.5, 13, 11, 14], "texture": "#layer0"},
+				"south": {"uv": [10.5, 13, 11, 14], "texture": "#layer0"},
+				"west": {"uv": [10.5, 13, 11, 14], "texture": "#layer0"},
+				"up": {"uv": [10.5, 12.5, 11, 13], "texture": "#layer0"},
+				"down": {"uv": [11, 12.5, 11.5, 13], "texture": "#layer0"}
+			}
+		}
+	],
+	"display": {
+		"head": {
+			"rotation": [0, 90, 0],
+			"translation": [0, 17, 0],
+			"scale": [1.7, 1.6, 1.7]
+		},
+        "gui": {
+            "rotation": [ 30, 315, 0 ],
+            "translation": [ 0, 3, 0],
+            "scale":[ 1, 1, 1 ]
+        }
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/propeller_cap",
+		"layer1": "vesture:item/propeller_cap_iron"
+	}
+}

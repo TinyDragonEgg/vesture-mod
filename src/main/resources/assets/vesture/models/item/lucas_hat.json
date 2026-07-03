@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/lucas_hat",
+		"layer1": "vesture:item/lucas_hat"
+	}
+}

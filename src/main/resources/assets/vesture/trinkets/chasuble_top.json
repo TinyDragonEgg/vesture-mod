@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:chasuble_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_cleric",
+      "equipment_slot": "chest"
+    }
+  ]
+}

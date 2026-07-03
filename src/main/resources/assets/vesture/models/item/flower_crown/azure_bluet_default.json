@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/flower_crown/azure_bluet_default",
+		"layer1": "vesture:item/flower_crown/azure_bluet_default"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/conductors_cap",
+		"layer1": "vesture:item/conductors_cap_iron"
+	}
+}

@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:blouse"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:ari_default",
+      "equipment_slot": "chest"
+    }
+  ]
+}

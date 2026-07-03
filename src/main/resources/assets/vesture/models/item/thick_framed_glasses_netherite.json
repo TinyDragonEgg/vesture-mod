@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/thick_framed_glasses",
+		"layer1": "vesture:item/thick_framed_glasses_netherite"
+	}
+}

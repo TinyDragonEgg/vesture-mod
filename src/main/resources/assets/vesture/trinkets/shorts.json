@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:shorts"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager",
+      "equipment_slot": "legs"
+    }
+  ]
+}

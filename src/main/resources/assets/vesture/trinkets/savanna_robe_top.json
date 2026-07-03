@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:savanna_robe_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_savanna",
+      "equipment_slot": "chest"
+    }
+  ]
+}

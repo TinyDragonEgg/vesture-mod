@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/wool_coat_top",
+		"layer1": "vesture:item/wool_coat_top_overlay"
+	}
+}

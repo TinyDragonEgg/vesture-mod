@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/aviator_cap",
+		"layer1": "vesture:item/aviator_cap_iron"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/aviator_cap_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/aviator_cap_on_head",
+		"layer1": "vesture:item/aviator_cap_netherite_on_head"
+	}
+}

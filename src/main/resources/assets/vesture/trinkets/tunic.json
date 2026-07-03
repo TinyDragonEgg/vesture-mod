@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:tunic"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager",
+      "equipment_slot": "chest"
+    }
+  ]
+}

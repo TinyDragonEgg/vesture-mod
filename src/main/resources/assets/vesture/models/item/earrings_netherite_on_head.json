@@ -1,0 +1,6 @@
+{
+	"parent": "vesture:item/earrings_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/earrings_netherite_on_head"
+	}
+}

@@ -1,0 +1,18 @@
+{
+	"parent": "vesture:item/template_player_hat_dyeable",
+	"textures": {
+	  	"layer0": "vesture:item/flat_cap_on_head",
+		"layer1": "vesture:item/flat_cap_on_head"
+	},
+	"display": {
+		"head": {
+			"translation": [0, 1, -0.5],
+			"scale": [1.21, 1.21, 1.41]
+		},
+		"gui": {
+            "rotation": [30, 225, 0],
+            "translation": [0, 0, -0.5],
+            "scale": [0.625, 0.625, 0.728]
+        }
+	}
+}

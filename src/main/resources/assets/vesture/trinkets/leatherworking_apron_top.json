@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:leatherworking_apron_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_leatherworker",
+      "equipment_slot": "chest"
+    }
+  ]
+}

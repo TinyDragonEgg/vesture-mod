@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/flower_crown/white_tulip_poppy",
+		"layer1": "vesture:item/flower_crown/white_tulip_poppy"
+	}
+}

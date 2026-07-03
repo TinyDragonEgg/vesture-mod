@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/cartographers_monocle",
+		"layer1": "vesture:item/cartographers_monocle"
+	}
+}

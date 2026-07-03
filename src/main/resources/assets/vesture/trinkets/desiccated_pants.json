@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:desiccated_pants"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:parched",
+      "equipment_slot": "legs"
+    }
+  ]
+}

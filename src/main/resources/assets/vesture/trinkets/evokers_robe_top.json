@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:evokers_robe_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:evoker",
+      "equipment_slot": "chest"
+    }
+  ]
+}

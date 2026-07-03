@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:cooking_apron_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_butcher",
+      "equipment_slot": "chest"
+    }
+  ]
+}

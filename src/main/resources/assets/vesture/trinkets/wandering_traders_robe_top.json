@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:wandering_traders_robe_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:wandering_trader",
+      "equipment_slot": "chest"
+    }
+  ]
+}

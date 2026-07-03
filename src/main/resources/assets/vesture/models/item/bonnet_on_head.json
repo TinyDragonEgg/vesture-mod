@@ -1,0 +1,13 @@
+{
+	"parent": "vesture:item/template_player_hat_dyeable",
+	"textures": {
+	  	"layer0": "vesture:item/bonnet_on_head",
+		"layer1": "vesture:item/bonnet_overlay_on_head"
+	},
+	"display": {
+		"head": {
+			"translation": [0, 2, 0],
+			"scale": [1.21, 1.21, 1.21]
+		}
+	}
+}

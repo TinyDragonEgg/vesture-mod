@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/template_player_hat_dyeable",
+	"textures": {
+	  	"layer0": "vesture:item/drama_mask_on_head",
+		"layer1": "vesture:item/drama_mask_overlay_on_head"
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"display": {
+		"gui": {
+            "rotation": [ 30, -45, 90 ],
+            "translation": [ -5.5, 3, 0],
+            "scale":[ 1.5, 1.5, 1.5 ]
+        }
+	},
+	"parent": "vesture:item/template_glove_dyeable",
+	"textures": {
+	  	"layer0": "vesture:item/thick_glove_in_hand",
+		"layer1": "vesture:item/thick_glove_in_hand"
+	}
+}

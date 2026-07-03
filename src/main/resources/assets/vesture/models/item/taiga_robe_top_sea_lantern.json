@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/taiga_robe_top",
+		"layer1": "vesture:item/taiga_robe_top_sea_lantern"
+	}
+}

@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:loincloth"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:zombified_piglin",
+      "equipment_slot": "legs"
+    }
+  ]
+}

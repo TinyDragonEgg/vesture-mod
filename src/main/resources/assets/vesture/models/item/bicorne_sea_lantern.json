@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/bicorne",
+		"layer1": "vesture:item/bicorne_sea_lantern"
+	}
+}

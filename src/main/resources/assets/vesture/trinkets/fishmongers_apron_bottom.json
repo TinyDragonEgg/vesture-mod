@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:fishmongers_apron_bottom"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_fisherman",
+      "equipment_slot": "legs"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/crown_iron",
+		"layer1": "vesture:item/crown_iron"
+	}
+}

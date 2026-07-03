@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/barbarian_tunic",
+		"layer1": "vesture:item/barbarian_tunic_glowstone"
+	}
+}

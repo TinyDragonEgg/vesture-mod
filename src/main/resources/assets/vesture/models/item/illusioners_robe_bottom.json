@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/illusioners_robe_bottom",
+		"layer1": "vesture:item/illusioners_robe_bottom_overlay"
+	}
+}

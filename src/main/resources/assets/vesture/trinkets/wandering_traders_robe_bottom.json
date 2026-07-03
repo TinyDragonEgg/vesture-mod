@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:wandering_traders_robe_bottom"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:wandering_trader",
+      "equipment_slot": "legs"
+    }
+  ]
+}

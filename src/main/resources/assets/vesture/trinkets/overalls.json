@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:overalls"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:sunny_default",
+      "equipment_slot": "chest"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:bowtie"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:bowtie",
+      "equipment_slot": "chest"
+    }
+  ]
+}

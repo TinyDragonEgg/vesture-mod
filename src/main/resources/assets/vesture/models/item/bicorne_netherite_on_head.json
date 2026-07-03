@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/bicorne_default_on_head",
+	"textures": {
+		"layer0": "vesture:item/bicorne_on_head",
+		"layer1": "vesture:item/bicorne_netherite_on_head"
+	}
+}

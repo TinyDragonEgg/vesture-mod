@@ -1,0 +1,26 @@
+{
+	"layers": {
+		"humanoid": [
+			{
+				"dyeable": {
+					"color_when_undyed": -6265536
+				},
+				"texture": "vesture:villager_snow"
+			},
+			{
+				"texture": "vesture:villager_snow_overlay"
+			}
+		],
+		"humanoid_leggings": [
+			{
+				"dyeable": {
+					"color_when_undyed": -6265536
+				},
+				"texture": "vesture:villager_snow"
+			},
+			{
+				"texture": "vesture:villager_snow_overlay"
+			}
+		]
+	}
+}

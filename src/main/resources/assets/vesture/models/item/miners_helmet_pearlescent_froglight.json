@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/miners_helmet",
+		"layer1": "vesture:item/miners_helmet_pearlescent_froglight"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/toga_bottom",
+		"layer1": "vesture:item/toga_bottom_overlay"
+	}
+}

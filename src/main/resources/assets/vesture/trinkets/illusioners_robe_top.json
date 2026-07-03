@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:illusioners_robe_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:illusioner",
+      "equipment_slot": "chest"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/umbrella_hat_default_on_head",
+	"textures": {
+		"layer0": "vesture:item/umbrella_hat_on_head",
+		"layer1": "vesture:item/umbrella_hat_sea_lantern_on_head"
+	}
+}

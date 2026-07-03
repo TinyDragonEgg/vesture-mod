@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:plains_robe_bottom"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_plains",
+      "equipment_slot": "legs"
+    }
+  ]
+}

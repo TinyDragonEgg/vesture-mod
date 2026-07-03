@@ -1,0 +1,44 @@
+{
+	"display": {
+        "gui": {
+            "rotation": [ 30, 225, 0 ],
+            "scale":[ 0.625, 0.625, 0.625 ],
+            "translation": [ -2, -0.5, 0]
+        }
+	},
+	"elements": [
+		{
+			"name": "left_horn",
+			"from": [1, 9, -4],
+			"to": [3, 13, 9],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [9, 8, 4]},
+			"faces": {
+				"north": {"uv": [4, 0, 6, 4], "texture": "#0"},
+				"east": {"uv": [0, 4, 4, 16], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [6, 0, 8, 4], "texture": "#0"},
+				"west": {"uv": [6, 4, 10, 16], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [12, 4, 10, 16], "texture": "#0"},
+				"down": {"uv": [4, 16, 6, 4], "texture": "#0"}
+			}
+		},
+		{
+			"name": "right_horn",
+			"from": [13, 9, -4],
+			"to": [15, 13, 9],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [21, 8, 4]},
+			"faces": {
+				"north": {"uv": [6, 0, 4, 4], "texture": "#0"},
+				"east": {"uv": [10, 4, 6, 16], "rotation": 90, "texture": "#0"},
+				"south": {"uv": [8, 0, 6, 4], "texture": "#0"},
+				"west": {"uv": [4, 4, 0, 16], "rotation": 270, "texture": "#0"},
+				"up": {"uv": [10, 4, 12, 16], "texture": "#0"},
+				"down": {"uv": [6, 16, 4, 4], "texture": "#0"}
+			}
+		}
+	],
+	"parent": "vesture:item/template_player_hat",
+	"textures": {
+		"0": "vesture:item/ravager_horns_on_head",
+		"particle": "vesture:item/ravager_horns_on_head"
+	}
+}

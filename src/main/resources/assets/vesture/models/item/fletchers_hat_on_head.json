@@ -1,0 +1,13 @@
+{
+	"display": {
+		"head": {
+			"scale": [1.21, 1.16, 1.21],
+			"translation": [0, 1, 0]
+		}
+	},
+	"parent": "vesture:item/template_player_hat_dyeable",
+	"textures": {
+		"layer0": "vesture:item/fletchers_hat_on_head", 
+		"layer1": "vesture:item/fletchers_hat_overlay_on_head"
+	}
+}

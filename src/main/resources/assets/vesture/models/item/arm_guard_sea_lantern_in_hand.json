@@ -1,0 +1,6 @@
+{
+	"parent": "vesture:item/arm_guard_default_in_hand",
+	"textures": {
+	  	"layer0": "vesture:item/arm_guard_sea_lantern_in_hand"
+	}
+}

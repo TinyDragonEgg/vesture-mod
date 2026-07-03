@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/hair_clip_default",
+		"layer1": "vesture:item/hair_clip_default"
+	}
+}

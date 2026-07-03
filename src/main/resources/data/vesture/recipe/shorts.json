@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["LLL", "L L", "L L"],
+  "key": {"L": {"item": "minecraft:leather"}},
+  "result": {"id": "vesture:shorts"}
+}

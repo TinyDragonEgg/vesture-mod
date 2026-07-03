@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["LWL", "L L", "LWL"],
+  "key": {"L": {"item": "minecraft:leather"}, "W": {"item": "minecraft:white_wool"}},
+  "result": {"id": "vesture:taiga_robe_top"}
+}

@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:button_down_shirt"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:party_steve",
+      "equipment_slot": "chest"
+    }
+  ]
+}

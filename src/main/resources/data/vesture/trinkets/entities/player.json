@@ -1,0 +1,12 @@
+{
+  "entities": ["minecraft:player"],
+  "replace": false,
+  "slots": [
+    "head/cosmetic",
+    "chest/cosmetic",
+    "legs/cosmetic",
+    "feet/cosmetic",
+    "hand/cosmetic",
+    "back/wings"
+  ]
+}

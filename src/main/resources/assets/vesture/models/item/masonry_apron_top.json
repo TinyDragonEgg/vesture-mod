@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/masonry_apron_top",
+		"layer1": "vesture:item/masonry_apron_top_overlay"
+	}
+}

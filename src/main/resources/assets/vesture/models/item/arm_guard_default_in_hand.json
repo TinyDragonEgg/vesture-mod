@@ -1,0 +1,23 @@
+{
+	"display": {
+		"gui": {
+            "rotation": [ 30, -45, 90 ],
+            "scale":[ 1.5, 1.5, 1.5 ],
+            "translation": [ -3, 2, 0]
+        },
+		"thirdperson_righthand": {
+			"rotation": [90, 0, 0],
+            "scale": [1.1, 1.1, 1.1],
+			"translation": [0, -2, 8.5]
+        },
+		"thirdperson_lefthand": {
+			"rotation": [90, 180, 0],
+            "scale": [1.1, 1.1, 1.1],
+			"translation": [0, -2, 8.5]
+        }
+	},
+	"parent": "vesture:item/template_glove",
+	"textures": {
+	  	"layer0": "vesture:item/arm_guard_default_in_hand"
+	}
+}

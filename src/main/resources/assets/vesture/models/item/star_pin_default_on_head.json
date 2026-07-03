@@ -1,0 +1,16 @@
+{
+	"display": {
+		"gui": {
+            "rotation": [30, 225, 0],
+            "scale": [0.625, 0.517, 0.517]
+        },
+		"head": {
+			"scale": [1.21, 1, 1],
+			"translation": [0, 1, -1]
+		}
+	},
+	"parent": "vesture:item/template_player_hat",
+	"textures": {
+	  	"layer0": "vesture:item/star_pin_default_on_head"
+	}
+}

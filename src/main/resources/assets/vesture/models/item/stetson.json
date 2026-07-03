@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/stetson",
+		"layer1": "vesture:item/stetson_overlay"
+	}
+}

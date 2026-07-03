@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:torn_shirt"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:stray",
+      "equipment_slot": "chest"
+    }
+  ]
+}

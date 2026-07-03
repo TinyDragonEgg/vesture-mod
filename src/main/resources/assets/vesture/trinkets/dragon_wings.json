@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:dragon_wings"],
+  "render": [
+    {
+      "type": "trinkets:wings",
+      "asset": "vesture:ender_dragon",
+      "force": true
+    }
+  ]
+}

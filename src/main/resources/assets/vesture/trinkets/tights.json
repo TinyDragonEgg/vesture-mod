@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:tights"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:bee_friender",
+      "equipment_slot": "legs"
+    }
+  ]
+}

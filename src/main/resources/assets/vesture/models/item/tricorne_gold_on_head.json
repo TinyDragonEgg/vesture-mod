@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/tricorne_default_on_head",
+	"textures": {
+		"layer0": "vesture:item/tricorne_on_head",
+		"layer1": "vesture:item/tricorne_gold_on_head"
+	}
+}

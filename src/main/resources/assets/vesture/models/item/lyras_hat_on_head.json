@@ -1,0 +1,12 @@
+{
+	"parent": "vesture:item/template_player_hat",
+	"textures": {
+		"layer0": "vesture:item/lyras_hat_on_head"
+	},
+	"display": {
+		"head": {
+			"scale": [1.21, 1.31, 1.21],
+			"translation": [0, 1, 0]
+		}
+	}
+}

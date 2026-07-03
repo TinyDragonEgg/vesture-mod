@@ -1,0 +1,23 @@
+{
+	"layers": {
+		"humanoid": [
+			{
+				"dyeable": {
+					"color_when_undyed": -6265536
+				},
+				"texture": "vesture:villager_fisherman"
+			},
+			{
+				"texture": "vesture:villager_fisherman_overlay"
+			}
+		],
+		"humanoid_leggings": [
+			{
+				"dyeable": {
+					"color_when_undyed": -6265536
+				},
+				"texture": "vesture:villager_fisherman"
+			}
+		]
+	}
+}

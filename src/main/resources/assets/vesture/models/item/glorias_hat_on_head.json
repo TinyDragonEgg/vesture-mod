@@ -1,0 +1,6 @@
+{
+	"parent": "vesture:item/template_player_hat",
+	"textures": {
+		"layer0": "vesture:item/glorias_hat_on_head"
+	}
+}

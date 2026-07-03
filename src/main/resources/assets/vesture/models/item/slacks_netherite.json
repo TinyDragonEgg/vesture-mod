@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/slacks",
+		"layer1": "vesture:item/slacks_netherite"
+	}
+}

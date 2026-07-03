@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/tricorne",
+		"layer1": "vesture:item/tricorne_netherite"
+	}
+}

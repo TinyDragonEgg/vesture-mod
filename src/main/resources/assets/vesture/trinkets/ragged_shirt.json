@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:ragged_shirt"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:drowned",
+      "equipment_slot": "chest"
+    }
+  ]
+}

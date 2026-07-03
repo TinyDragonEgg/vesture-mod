@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:snow_robe_bottom"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_snow",
+      "equipment_slot": "legs"
+    }
+  ]
+}

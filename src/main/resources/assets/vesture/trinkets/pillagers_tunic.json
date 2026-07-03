@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:pillagers_tunic"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:pillager",
+      "equipment_slot": "chest"
+    }
+  ]
+}

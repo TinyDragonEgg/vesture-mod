@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/dragon_wings",
+		"layer1": "vesture:item/dragon_wings"
+	}
+}

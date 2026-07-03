@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:barbarian_shorts"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:piglin_default",
+      "equipment_slot": "legs"
+    }
+  ]
+}

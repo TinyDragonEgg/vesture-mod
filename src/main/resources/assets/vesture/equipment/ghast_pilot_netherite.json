@@ -1,0 +1,15 @@
+{
+	"layers": {
+		"humanoid": [
+			{
+				"dyeable": {
+					"color_when_undyed": -6265536
+				},
+				"texture": "vesture:ghast_pilot"
+			},
+			{
+				"texture": "vesture:ghast_pilot_netherite"
+			}
+		]
+	}
+}

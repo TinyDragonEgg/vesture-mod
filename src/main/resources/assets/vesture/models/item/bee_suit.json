@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/bee_suit",
+		"layer1": "vesture:item/bee_suit_overlay"
+	}
+}

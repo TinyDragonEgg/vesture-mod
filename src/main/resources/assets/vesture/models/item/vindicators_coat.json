@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/vindicators_coat",
+		"layer1": "vesture:item/vindicators_coat_overlay"
+	}
+}

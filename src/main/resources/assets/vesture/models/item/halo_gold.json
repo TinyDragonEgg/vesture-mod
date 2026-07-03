@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/halo_gold",
+		"layer1": "vesture:item/halo_gold"
+	}
+}

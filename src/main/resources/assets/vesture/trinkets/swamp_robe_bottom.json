@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:swamp_robe_bottom"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_swamp",
+      "equipment_slot": "legs"
+    }
+  ]
+}

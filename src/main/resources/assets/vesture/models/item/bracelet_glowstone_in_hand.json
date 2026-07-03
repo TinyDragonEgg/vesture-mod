@@ -1,0 +1,6 @@
+{
+	"parent": "vesture:item/bracelet_default_in_hand",
+	"textures": {
+	  	"layer0": "vesture:item/bracelet_glowstone_in_hand"
+	}
+}

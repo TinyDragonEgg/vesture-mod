@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:wool_coat_top"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_shepherd",
+      "equipment_slot": "chest"
+    }
+  ]
+}

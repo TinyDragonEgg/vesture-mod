@@ -1,0 +1,15 @@
+{
+  "values": [
+    "vesture:arm_guard",
+    "vesture:bracelet",
+    "vesture:cuff",
+    "vesture:gauntlet",
+    "vesture:glove",
+    "vesture:knuckle",
+    "vesture:prosthetic_arm",
+    "vesture:thick_glove",
+    "vesture:wrist_recovery_compass",
+    "vesture:wristcompass",
+    "vesture:wristwatch"
+  ]
+}

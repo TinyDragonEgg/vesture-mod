@@ -1,0 +1,6 @@
+{
+	"parent": "vesture:item/prosthetic_arm_default_in_hand",
+	"textures": {
+	  	"layer0": "vesture:item/prosthetic_arm_gold_in_hand"
+	}
+}

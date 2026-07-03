@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/circle_framed_glasses_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/circle_framed_glasses_on_head",
+		"layer1": "vesture:item/circle_framed_glasses_iron_on_head"
+	}
+}

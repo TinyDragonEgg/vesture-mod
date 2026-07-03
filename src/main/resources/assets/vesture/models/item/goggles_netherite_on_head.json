@@ -1,0 +1,13 @@
+{
+	"display": {
+		"head": {
+			"scale": [1.21, 1.06, 1.21],
+			"translation": [0, 2, 0]
+		}
+	},
+	"parent": "vesture:item/goggles_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/goggles_on_head",
+		"layer1": "vesture:item/goggles_netherite_on_head"
+	}
+}

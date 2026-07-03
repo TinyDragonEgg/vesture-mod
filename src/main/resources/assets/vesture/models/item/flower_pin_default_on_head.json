@@ -1,0 +1,6 @@
+{
+	"parent": "vesture:item/template_player_hat",
+	"textures": {
+	  	"layer0": "vesture:item/flower_pin_default_on_head"
+	}
+}

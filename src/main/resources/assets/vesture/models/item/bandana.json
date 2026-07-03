@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/bandana",
+		"layer1": "vesture:item/bandana_overlay"
+	}
+}

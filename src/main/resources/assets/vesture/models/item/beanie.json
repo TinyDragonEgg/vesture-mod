@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/beanie",
+		"layer1": "vesture:item/beanie_overlay"
+	}
+}

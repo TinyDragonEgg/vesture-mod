@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:amulet"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:amulet_default",
+      "equipment_slot": "chest"
+    }
+  ]
+}

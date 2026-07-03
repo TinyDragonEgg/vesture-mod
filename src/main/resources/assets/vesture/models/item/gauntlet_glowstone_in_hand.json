@@ -1,0 +1,6 @@
+{
+	"parent": "vesture:item/gauntlet_default_in_hand",
+	"textures": {
+	  	"layer0": "vesture:item/gauntlet_glowstone_in_hand"
+	}
+}

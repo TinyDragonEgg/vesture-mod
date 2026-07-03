@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": ["FFF", "SFS", "SFS"],
+  "key": {"F": {"item": "minecraft:feather"}, "S": {"item": "minecraft:string"}},
+  "result": {"id": "vesture:dragon_wings"}
+}

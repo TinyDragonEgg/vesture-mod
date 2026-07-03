@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:bomber_jacket"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:ghast_pilot_default",
+      "equipment_slot": "chest"
+    }
+  ]
+}

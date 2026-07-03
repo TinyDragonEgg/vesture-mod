@@ -1,0 +1,6 @@
+{
+	"parent": "vesture:item/hair_clip_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/hair_clip_netherite_on_head"
+	}
+}

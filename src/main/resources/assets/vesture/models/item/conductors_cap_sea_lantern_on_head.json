@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/conductors_cap_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/conductors_cap_on_head",
+		"layer1": "vesture:item/conductors_cap_sea_lantern_on_head"
+	}
+}

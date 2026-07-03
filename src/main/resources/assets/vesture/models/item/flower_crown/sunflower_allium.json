@@ -1,0 +1,7 @@
+{
+	"parent": "minecraft:item/generated",
+	"textures": {
+	  	"layer0": "vesture:item/flower_crown/sunflower_allium",
+		"layer1": "vesture:item/flower_crown/sunflower_allium"
+	}
+}

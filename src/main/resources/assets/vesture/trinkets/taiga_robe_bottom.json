@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:taiga_robe_bottom"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:villager_taiga_default",
+      "equipment_slot": "legs"
+    }
+  ]
+}

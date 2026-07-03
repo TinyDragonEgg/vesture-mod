@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/template_player_hat_dyeable",
+	"textures": {
+	  	"layer0": "vesture:item/desiccated_cap_on_head",
+		"layer1": "vesture:item/desiccated_cap_on_head"
+	}
+}

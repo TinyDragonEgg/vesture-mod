@@ -1,0 +1,7 @@
+{
+	"parent": "vesture:item/capotain_default_on_head",
+	"textures": {
+	  	"layer0": "vesture:item/capotain_on_head",
+		"layer1": "vesture:item/capotain_gold_on_head"
+	}
+}

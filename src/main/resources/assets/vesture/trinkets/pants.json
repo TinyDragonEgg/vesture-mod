@@ -1,0 +1,11 @@
+﻿{
+  "priority": 0,
+  "target": ["vesture:pants"],
+  "render": [
+    {
+      "type": "trinkets:equipment_replace",
+      "asset": "vesture:steve",
+      "equipment_slot": "legs"
+    }
+  ]
+}
