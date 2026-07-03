@@ -1,5 +1,6 @@
 {
   "order": 100,
   "amount": 1,
-  "icon": "trinkets:gui/slots/cosmetic"
+  "icon": "trinkets:container/slots/hat",
+  "validator_predicates": ["trinkets:default"]
 }

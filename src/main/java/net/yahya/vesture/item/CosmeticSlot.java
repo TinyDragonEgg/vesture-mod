@@ -1,5 +1,7 @@
 package net.yahya.vesture.item;
 
+import net.minecraft.world.entity.EquipmentSlot;
+
 public enum CosmeticSlot {
     HEAD("head", "cosmetic"),
     CHEST("chest", "cosmetic"),
@@ -18,5 +20,15 @@ public enum CosmeticSlot {
 
     public String trinketsId() {
         return group + "/" + name;
+    }
+
+    public EquipmentSlot vanillaSlot() {
+        return switch (this) {
+            case HEAD  -> EquipmentSlot.HEAD;
+            case CHEST -> EquipmentSlot.CHEST;
+            case LEGS  -> EquipmentSlot.LEGS;
+            case FEET  -> EquipmentSlot.FEET;
+            default    -> null;
+        };
     }
 }
