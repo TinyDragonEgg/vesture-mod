@@ -1,0 +1,11 @@
+{
+  "priority": 0,
+  "target": ["vesture:wrist_recovery_compass"],
+  "render": [
+    {
+      "type": "trinkets:model",
+      "settings": { "model_part": "right_arm" },
+      "model": "vesture:item/wrist_recovery_compass_0_in_hand"
+    }
+  ]
+}

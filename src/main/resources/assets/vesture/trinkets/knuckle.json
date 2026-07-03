@@ -1,0 +1,16 @@
+{
+  "priority": 0,
+  "target": ["vesture:knuckle"],
+  "render": [
+    {
+      "type": "trinkets:model",
+      "settings": { "model_part": "right_arm" },
+      "model": "vesture:item/knuckle_default_in_hand"
+    },
+    {
+      "type": "trinkets:model",
+      "settings": { "model_part": "left_arm" },
+      "model": "vesture:item/knuckle_default_in_hand"
+    }
+  ]
+}

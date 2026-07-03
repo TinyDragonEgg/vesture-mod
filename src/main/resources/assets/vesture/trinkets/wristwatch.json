@@ -1,0 +1,11 @@
+{
+  "priority": 0,
+  "target": ["vesture:wristwatch"],
+  "render": [
+    {
+      "type": "trinkets:model",
+      "settings": { "model_part": "right_arm" },
+      "model": "vesture:item/wristwatch_0_in_hand"
+    }
+  ]
+}

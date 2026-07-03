@@ -1,0 +1,11 @@
+{
+  "priority": 0,
+  "target": ["vesture:wristcompass"],
+  "render": [
+    {
+      "type": "trinkets:model",
+      "settings": { "model_part": "right_arm" },
+      "model": "vesture:item/wristcompass_0_in_hand"
+    }
+  ]
+}

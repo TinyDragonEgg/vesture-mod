@@ -1,0 +1,11 @@
+{
+  "priority": 0,
+  "target": ["vesture:prosthetic_arm"],
+  "render": [
+    {
+      "type": "trinkets:model",
+      "settings": { "model_part": "right_arm" },
+      "model": "vesture:item/prosthetic_arm_default_in_hand"
+    }
+  ]
+}
