@@ -1,0 +1,1 @@
+{ "parent": "vesture:item/template_player_right_arm", "textures": { "layer0": "vesture:item/equipment/wandering_trader", "layer1": "vesture:item/equipment/wandering_trader_overlay" } }

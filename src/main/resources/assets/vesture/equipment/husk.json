@@ -1,20 +1,14 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:husk"
-			}
-		],
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:husk"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:husk"
+                                    }
+                                ],
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:husk"
+                                             }
+                                         ]
+               }
 }

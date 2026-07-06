@@ -1,20 +1,14 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:steve"
-			}
-		],
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:steve"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:steve"
+                                    }
+                                ],
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:steve"
+                                             }
+                                         ]
+               }
 }

@@ -1,26 +1,20 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:villager_taiga"
-			},
-			{
-				"texture": "vesture:villager_taiga_gold"
-			}
-		],
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:villager_taiga"
-			},
-			{
-				"texture": "vesture:villager_taiga_overlay"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:villager_taiga"
+                                    },
+                                    {
+                                        "texture":  "vesture:villager_taiga_gold"
+                                    }
+                                ],
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:villager_taiga"
+                                             },
+                                             {
+                                                 "texture":  "vesture:villager_taiga_overlay"
+                                             }
+                                         ]
+               }
 }

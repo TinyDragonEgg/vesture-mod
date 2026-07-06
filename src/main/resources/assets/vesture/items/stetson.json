@@ -1,1 +1,1 @@
-﻿{"model":{"type":"minecraft:model","model":"vesture:item/stetson"}}
+﻿{"model": {"type": "minecraft:select", "property": "minecraft:display_context", "cases": [{"when": "head", "model": {"type": "minecraft:model", "model": "vesture:item/stetson_on_head"}}], "fallback": {"type": "minecraft:model", "model": "vesture:item/stetson"}}}

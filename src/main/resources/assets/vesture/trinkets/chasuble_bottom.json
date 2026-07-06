@@ -1,11 +1,74 @@
-﻿{
+{
   "priority": 0,
-  "target": ["vesture:chasuble_bottom"],
+  "target": [
+    "vesture:chasuble_bottom"
+  ],
   "render": [
     {
-      "type": "trinkets:equipment_replace",
-      "asset": "vesture:villager_cleric",
-      "equipment_slot": "legs"
+      "type": "model",
+      "model_part": "right_leg",
+      "model": "vesture:item/chasuble_bottom_on_right_leg",
+      "transformation": {
+        "scale": [
+          1.01,
+          1.01,
+          1.01
+        ],
+        "translation": [
+          0,
+          0.125,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
+    },
+    {
+      "type": "model",
+      "model_part": "left_leg",
+      "model": "vesture:item/chasuble_bottom_on_left_leg",
+      "transformation": {
+        "scale": [
+          1.01,
+          1.01,
+          1.01
+        ],
+        "translation": [
+          0,
+          0.125,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
     }
   ]
 }

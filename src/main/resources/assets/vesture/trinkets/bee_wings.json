@@ -1,11 +1,13 @@
-﻿{
-  "priority": 0,
-  "target": ["vesture:bee_wings"],
-  "render": [
-    {
-      "type": "trinkets:wings",
-      "asset": "vesture:bee_wings",
-      "force": true
-    }
-  ]
+{
+    "priority":  0,
+    "target":  [
+                   "vesture:bee_wings"
+               ],
+    "render":  [
+                   {
+                       "asset":  "vesture:bee_wings",
+                       "type":  "wings",
+                       "force":  true
+                   }
+               ]
 }

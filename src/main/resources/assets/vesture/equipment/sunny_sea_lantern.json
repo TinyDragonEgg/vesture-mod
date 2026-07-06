@@ -1,23 +1,17 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:sunny"
-			},
-			{
-				"texture": "vesture:sunny_sea_lantern"
-			}
-		],
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:sunny"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:sunny"
+                                    },
+                                    {
+                                        "texture":  "vesture:sunny_sea_lantern"
+                                    }
+                                ],
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:sunny"
+                                             }
+                                         ]
+               }
 }

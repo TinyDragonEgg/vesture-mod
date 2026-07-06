@@ -1,0 +1,7 @@
+﻿{
+    "parent":  "vesture:item/template_player_left_leg_foot",
+    "textures":  {
+                     "layer0":  "vesture:item/tall_boots",
+                     "layer1":  "vesture:item/tall_boots"
+                 }
+}

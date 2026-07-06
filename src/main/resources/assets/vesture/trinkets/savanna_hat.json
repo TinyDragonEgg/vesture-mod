@@ -1,0 +1,41 @@
+{
+  "priority": 0,
+  "target": [
+    "vesture:savanna_hat"
+  ],
+  "render": [
+    {
+      "type": "model",
+      "model_part": "head",
+      "model": "vesture:item/savanna_hat_on_head",
+      "transformation": {
+        "scale": [
+          0.6875,
+          0.6875,
+          0.6875
+        ],
+        "translation": [
+          0,
+          0.125,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 3.14159
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
+    }
+  ]
+}

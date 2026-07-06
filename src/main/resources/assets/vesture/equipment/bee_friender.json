@@ -1,23 +1,17 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:bee_friender"
-			},
-			{
-				"texture": "vesture:bee_friender_overlay"
-			}
-		],
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:bee_friender"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:bee_friender"
+                                    },
+                                    {
+                                        "texture":  "vesture:bee_friender_overlay"
+                                    }
+                                ],
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:bee_friender"
+                                             }
+                                         ]
+               }
 }

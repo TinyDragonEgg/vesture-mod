@@ -1,15 +1,12 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:pillager"
-			},
-			{
-				"texture": "vesture:pillager_overlay"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:pillager"
+                                    },
+                                    {
+                                        "texture":  "vesture:pillager_overlay"
+                                    }
+                                ]
+               }
 }

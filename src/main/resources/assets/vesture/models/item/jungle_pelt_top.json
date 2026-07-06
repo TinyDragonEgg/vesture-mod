@@ -1,7 +1,21 @@
 {
 	"parent": "minecraft:item/generated",
 	"textures": {
-	  	"layer0": "vesture:item/jungle_pelt_top",
+		"layer0": "vesture:item/jungle_pelt_top",
 		"layer1": "vesture:item/jungle_pelt_top_overlay"
+	},
+	"display": {
+		"head": {
+			"translation": [
+				-10.4,
+				0,
+				-10.5
+			],
+			"scale": [
+				2.6,
+				0,
+				2.27
+			]
+		}
 	}
 }

@@ -1,15 +1,12 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:ari"
-			},
-			{
-				"texture": "vesture:ari_sea_lantern"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:ari"
+                                    },
+                                    {
+                                        "texture":  "vesture:ari_sea_lantern"
+                                    }
+                                ]
+               }
 }

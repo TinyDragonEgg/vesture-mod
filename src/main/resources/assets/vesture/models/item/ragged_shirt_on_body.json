@@ -1,0 +1,1 @@
+{ "parent": "vesture:item/template_player_body", "textures": { "layer0": "vesture:item/equipment/drowned", "layer1": "vesture:item/equipment/drowned" } }

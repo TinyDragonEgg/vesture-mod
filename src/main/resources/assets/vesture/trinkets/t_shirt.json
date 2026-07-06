@@ -1,11 +1,107 @@
-﻿{
+{
   "priority": 0,
-  "target": ["vesture:t_shirt"],
+  "target": [
+    "vesture:t_shirt"
+  ],
   "render": [
     {
-      "type": "trinkets:equipment_replace",
-      "asset": "vesture:steve",
-      "equipment_slot": "chest"
+      "type": "model",
+      "model_part": "body",
+      "model": "vesture:item/t_shirt_on_body",
+      "transformation": {
+        "scale": [
+          1.01,
+          1.01,
+          1.01
+        ],
+        "translation": [
+          0,
+          0.125,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
+    },
+    {
+      "type": "model",
+      "model_part": "right_arm",
+      "model": "vesture:item/t_shirt_on_right_arm",
+      "transformation": {
+        "scale": [
+          1.01,
+          1.01,
+          1.01
+        ],
+        "translation": [
+          0,
+          0.125,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
+    },
+    {
+      "type": "model",
+      "model_part": "left_arm",
+      "model": "vesture:item/t_shirt_on_left_arm",
+      "transformation": {
+        "scale": [
+          1.01,
+          1.01,
+          1.01
+        ],
+        "translation": [
+          0,
+          0.125,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
     }
   ]
 }

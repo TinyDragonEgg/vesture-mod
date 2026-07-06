@@ -1,1 +1,1 @@
-﻿{"model":{"type":"minecraft:model","model":"vesture:item/florians_hat"}}
+﻿{"model": {"type": "minecraft:select", "property": "minecraft:display_context", "cases": [{"when": "head", "model": {"type": "minecraft:model", "model": "vesture:item/florians_hat_on_head"}}], "fallback": {"type": "minecraft:model", "model": "vesture:item/florians_hat"}}}

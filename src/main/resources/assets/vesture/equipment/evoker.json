@@ -1,26 +1,20 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:evoker"
-			},
-			{
-				"texture": "vesture:evoker_overlay"
-			}
-		],
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:evoker"
-			},
-			{
-				"texture": "vesture:evoker_overlay"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:evoker"
+                                    },
+                                    {
+                                        "texture":  "vesture:evoker_overlay"
+                                    }
+                                ],
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:evoker"
+                                             },
+                                             {
+                                                 "texture":  "vesture:evoker_overlay"
+                                             }
+                                         ]
+               }
 }

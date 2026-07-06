@@ -1,15 +1,12 @@
 {
-	"layers": {
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:zuri"
-			},
-			{
-				"texture": "vesture:zuri_netherite"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:zuri"
+                                             },
+                                             {
+                                                 "texture":  "vesture:zuri_netherite"
+                                             }
+                                         ]
+               }
 }

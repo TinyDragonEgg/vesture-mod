@@ -1,0 +1,1 @@
+{ "parent": "vesture:item/template_player_right_arm", "textures": { "layer0": "vesture:item/equipment/villager_mason", "layer1": "vesture:item/equipment/villager_mason_overlay" } }

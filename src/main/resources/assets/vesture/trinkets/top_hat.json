@@ -1,0 +1,41 @@
+{
+  "priority": 0,
+  "target": [
+    "vesture:top_hat"
+  ],
+  "render": [
+    {
+      "type": "model",
+      "model_part": "head",
+      "model": "vesture:item/top_hat_on_head",
+      "transformation": {
+        "scale": [
+          0.666,
+          0.666,
+          0.666
+        ],
+        "translation": [
+          0,
+          0.45,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 3.14159
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
+    }
+  ]
+}

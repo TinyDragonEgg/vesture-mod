@@ -1,15 +1,12 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:piglin_brute"
-			},
-			{
-				"texture": "vesture:piglin_brute_iron"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:piglin_brute"
+                                    },
+                                    {
+                                        "texture":  "vesture:piglin_brute_iron"
+                                    }
+                                ]
+               }
 }

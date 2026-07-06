@@ -1,12 +1,9 @@
 {
-	"layers": {
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:zombified_piglin"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:zombified_piglin"
+                                             }
+                                         ]
+               }
 }

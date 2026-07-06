@@ -1,23 +1,17 @@
 {
-	"layers": {
-		"humanoid": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:piglin"
-			},
-			{
-				"texture": "vesture:piglin_glowstone"
-			}
-		],
-		"humanoid_leggings": [
-			{
-				"dyeable": {
-					"color_when_undyed": -6265536
-				},
-				"texture": "vesture:piglin"
-			}
-		]
-	}
+    "layers":  {
+                   "humanoid":  [
+                                    {
+                                        "texture":  "vesture:piglin"
+                                    },
+                                    {
+                                        "texture":  "vesture:piglin_glowstone"
+                                    }
+                                ],
+                   "humanoid_leggings":  [
+                                             {
+                                                 "texture":  "vesture:piglin"
+                                             }
+                                         ]
+               }
 }

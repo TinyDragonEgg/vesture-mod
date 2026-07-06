@@ -1,0 +1,36 @@
+{
+	"parent": "minecraft:block/block",
+	"textures": {
+		"0": "#layer0",
+		"1": "#layer1",
+		"particle": "#layer0"
+	},
+	"elements": [
+		{
+			"name": "body",
+			"from": [4, 1, 6],
+			"to": [12, 13, 10],
+			"faces": {
+				"north": {"uv": [8, 10, 10, 16], "texture": "#0"},
+				"south": {"uv": [5, 10, 7, 16], "texture": "#0"},
+				"east":  {"uv": [7, 10, 8, 16], "texture": "#0"},
+				"west":  {"uv": [4, 10, 5, 16], "texture": "#0"},
+				"up":    {"uv": [5, 8, 7, 10], "texture": "#0"},
+				"down":  {"uv": [7, 8, 9, 10], "texture": "#0"}
+			}
+		},
+		{
+			"name": "body_overlay",
+			"from": [3.75, 0.75, 5.75],
+			"to": [12.25, 13.25, 10.25],
+			"faces": {
+				"north": {"uv": [8, 10, 10, 16], "texture": "#1"},
+				"south": {"uv": [5, 10, 7, 16], "texture": "#1"},
+				"east":  {"uv": [7, 10, 8, 16], "texture": "#1"},
+				"west":  {"uv": [4, 10, 5, 16], "texture": "#1"},
+				"up":    {"uv": [5, 8, 7, 10], "texture": "#1"},
+				"down":  {"uv": [7, 8, 9, 10], "texture": "#1"}
+			}
+		}
+	]
+}

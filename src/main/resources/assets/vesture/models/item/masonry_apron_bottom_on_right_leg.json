@@ -1,0 +1,7 @@
+﻿{
+    "parent":  "vesture:item/template_player_right_leg",
+    "textures":  {
+                     "layer0":  "vesture:item/masonry_apron_bottom",
+                     "layer1":  "vesture:item/masonry_apron_bottom_overlay"
+                 }
+}

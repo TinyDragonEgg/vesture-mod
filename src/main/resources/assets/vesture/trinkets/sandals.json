@@ -1,11 +1,74 @@
-﻿{
+{
   "priority": 0,
-  "target": ["vesture:sandals"],
+  "target": [
+    "vesture:sandals"
+  ],
   "render": [
     {
-      "type": "trinkets:equipment_replace",
-      "asset": "vesture:wandering_trader",
-      "equipment_slot": "feet"
+      "type": "model",
+      "model_part": "right_leg",
+      "model": "vesture:item/sandals_on_right_leg_foot",
+      "transformation": {
+        "scale": [
+          1.01,
+          1.01,
+          1.01
+        ],
+        "translation": [
+          0,
+          0.125,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
+    },
+    {
+      "type": "model",
+      "model_part": "left_leg",
+      "model": "vesture:item/sandals_on_left_leg_foot",
+      "transformation": {
+        "scale": [
+          1.01,
+          1.01,
+          1.01
+        ],
+        "translation": [
+          0,
+          0.125,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
     }
   ]
 }

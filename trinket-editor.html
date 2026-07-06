@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Vesture Trinket Editor</title>
+<style>
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #21262d;
+  --border: #30363d;
+  --accent: #58a6ff;
+  --green: #3fb950;
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --warn: #d29922;
+  --danger: #f85149;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-size: 13px;
+}
+
+/* ── Topbar ── */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.topbar-title { font-weight: 700; color: var(--accent); font-size: 14px; white-space: nowrap; }
+.topbar-path { font-size: 11px; color: var(--muted); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.btn {
+  padding: 5px 11px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.btn:hover { background: var(--border); }
+.btn.accent { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+.btn.accent:hover { opacity: 0.85; }
+.reload-badge {
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(210,153,34,0.15);
+  border: 1px solid rgba(210,153,34,0.4);
+  color: var(--warn);
+  display: none;
+  animation: pulse 1.5s infinite;
+}
+.reload-badge.show { display: block; }
+@keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+
+/* ── Layout ── */
+.layout { display: flex; flex: 1; overflow: hidden; }
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.sidebar-top { padding: 8px; border-bottom: 1px solid var(--border); display: flex; flex-direction: column; gap: 6px; }
+.search-box {
+  width: 100%;
+  padding: 5px 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 12px;
+}
+.search-box:focus { outline: none; border-color: var(--accent); }
+.cat-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+.cat-tab {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  cursor: pointer;
+  background: none;
+}
+.cat-tab.on { background: var(--accent); border-color: var(--accent); color: #000; font-weight: 600; }
+.item-list { flex: 1; overflow-y: auto; }
+.item-entry {
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border-bottom: 1px solid rgba(48,54,61,0.4);
+  font-size: 11px;
+}
+.item-entry:hover { background: var(--surface2); }
+.item-entry.sel { background: rgba(88,166,255,0.1); color: var(--accent); }
+.item-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); flex-shrink: 0; }
+.item-dot.changed { background: var(--warn); }
+
+/* ── Editor panel ── */
+.editor-panel {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  gap: 8px;
+}
+.empty-state .big { font-size: 36px; }
+.empty-state p { font-size: 13px; }
+
+.editor-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.editor-name { font-size: 17px; font-weight: 700; }
+.badge {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.editor-actions { margin-left: auto; display: flex; gap: 6px; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card-header {
+  padding: 7px 12px;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-body { padding: 12px 14px; display: flex; flex-direction: column; gap: 10px; }
+
+/* ── Slider rows ── */
+.row { display: flex; align-items: center; gap: 8px; }
+.row-label { font-size: 11px; color: var(--muted); width: 18px; text-align: right; flex-shrink: 0; font-weight: 600; }
+.row input[type=range] {
+  flex: 1;
+  accent-color: var(--accent);
+  cursor: pointer;
+  height: 2px;
+  appearance: auto;
+}
+.num {
+  width: 62px;
+  padding: 3px 6px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 11px;
+  font-family: 'Consolas', monospace;
+  text-align: right;
+}
+.num:focus { outline: none; border-color: var(--accent); }
+.deg-label { font-size: 10px; color: var(--muted); width: 28px; text-align: right; flex-shrink: 0; }
+
+/* ── Axis buttons ── */
+.axis-row { display: flex; align-items: center; gap: 6px; }
+.axis-label { font-size: 11px; color: var(--muted); width: 40px; flex-shrink: 0; }
+.axis-btn {
+  padding: 3px 9px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+}
+.axis-btn.on { background: var(--accent); border-color: var(--accent); color: #000; }
+
+/* ── Lock scale ── */
+.lock-row { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+.lock-row input { accent-color: var(--accent); cursor: pointer; }
+
+/* ── Batch panel ── */
+.batch-row { display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* ── Reset btn ── */
+.reset-btn { font-size: 10px; color: var(--muted); cursor: pointer; padding: 1px 5px; border-radius: 3px; border: 1px solid transparent; background: none; }
+.reset-btn:hover { border-color: var(--border); color: var(--text); }
+
+/* scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* mode tabs */
+.mode-tabs { display: flex; gap: 1px; background: var(--bg); border-radius: 6px; padding: 2px; border: 1px solid var(--border); }
+.mode-tab { padding: 3px 10px; border-radius: 4px; border: none; background: none; color: var(--muted); cursor: pointer; font-size: 12px; font-weight: 500; }
+.mode-tab.on { background: var(--surface2); color: var(--text); }
+
+/* display context collapsible */
+.ctx-block { border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+.ctx-header { padding: 7px 12px; font-size: 11px; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; background: var(--surface2); user-select: none; }
+.ctx-header:hover { background: var(--border); }
+.ctx-body { padding: 10px 14px; display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--border); }
+.ctx-body.collapsed { display: none; }
+.ctx-arrow { font-size: 10px; color: var(--muted); }
+
+/* ── Bulk edit part buttons ── */
+.bulk-part-entry {
+  padding: 11px 14px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(48,54,61,0.5);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bulk-part-entry:hover { background: var(--surface2); }
+.bulk-part-entry.sel { background: rgba(88,166,255,0.08); border-left: 3px solid var(--accent); }
+.bulk-part-name { font-size: 12px; font-weight: 600; color: var(--text); flex: 1; }
+.bulk-part-count { font-size: 10px; color: var(--muted); background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 1px 7px; }
+
+/* ── Per-render sections (multi-model_part items) ── */
+.render-section { display: flex; flex-direction: column; gap: 10px; padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+.render-section-header { display: flex; align-items: center; gap: 10px; }
+.render-part-label { font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; color: var(--accent); padding: 2px 8px; border-radius: 4px; background: rgba(88,166,255,0.1); border: 1px solid rgba(88,166,255,0.3); }
+.render-section .card { border-color: rgba(48,54,61,0.6); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-title">Vesture Trinket Editor</span>
+  <div class="mode-tabs" id="modeTabs">
+    <button class="mode-tab on" data-mode="trinkets">Trinkets</button>
+    <button class="mode-tab" data-mode="models">Models</button>
+    <button class="mode-tab" data-mode="bulk">Bulk Edit</button>
+  </div>
+  <span class="topbar-path" id="folderPath">No folder open</span>
+  <span class="reload-badge" id="reloadBadge">⚡ Press F3+T in Minecraft</span>
+  <button class="btn accent" id="openBtn">Open Folder</button>
+</div>
+
+<div class="layout">
+  <div class="sidebar">
+    <div class="sidebar-top">
+      <input class="search-box" id="searchBox" placeholder="Search items…" disabled>
+      <div class="cat-tabs" id="catTabs">
+        <button class="cat-tab on" data-cat="all">All</button>
+        <button class="cat-tab" data-cat="hat">Hats</button>
+        <button class="cat-tab" data-cat="arm">Arms</button>
+        <button class="cat-tab" data-cat="body">Body</button>
+        <button class="cat-tab" data-cat="legs">Legs</button>
+        <button class="cat-tab" data-cat="feet">Feet</button>
+      </div>
+    </div>
+    <div class="item-list" id="itemList">
+      <div style="padding:16px;color:var(--muted);font-size:11px;text-align:center;">Open a folder to begin</div>
+    </div>
+  </div>
+
+  <div class="editor-panel" id="editorPanel">
+    <div class="empty-state">
+      <div class="big">🎩</div>
+      <p>Open your trinkets folder and select an item</p>
+      <p style="font-size:11px;">Open Folder → navigate to <code style="background:var(--surface2);padding:1px 4px;border-radius:3px;">assets/vesture/trinkets</code></p>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+// ── State ──────────────────────────────────────────────────────────────────
+let dirHandle = null;
+let items = {};        // filename → { handle, data, originalJson, category, modified }
+let selected = null;
+let currentCat = 'all';
+let hasChanges = false;
+
+// ── Utilities ──────────────────────────────────────────────────────────────
+const rad2deg = r => +(r * 180 / Math.PI).toFixed(2);
+const deg2rad = d => +(d * Math.PI / 180).toFixed(6);
+const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+const fmt = v => parseFloat(v.toFixed(4));
+
+function getModelParts(data) {
+  return (data.render || []).map(r => r.model_part).filter(Boolean);
+}
+
+function getCategory(data) {
+  const parts = getModelParts(data);
+  if (parts.includes('head')) return 'hat';
+  // Detect body/legs/feet by model reference names (post-conversion)
+  const models = (data.render || []).map(r => r.model || '');
+  if (models.some(m => /_on_(body|right_arm|left_arm)/.test(m))) return 'body';
+  if (models.some(m => /_foot/.test(m))) return 'feet';
+  if (parts.some(p => p.includes('leg'))) return 'legs';
+  if (parts.some(p => p.includes('arm'))) return 'arm';
+  // equipment_replace items (not yet converted)
+  const eqRender = (data.render || []).find(r => r.type === 'equipment_replace');
+  if (eqRender) {
+    const slot = eqRender.equipment_slot || '';
+    if (slot === 'chest') return 'body';
+    if (slot === 'legs') return 'legs';
+    if (slot === 'feet') return 'feet';
+  }
+  return 'other';
+}
+
+function isEquipmentReplace(data) {
+  return (data.render || []).some(r => r.type === 'equipment_replace') &&
+         !getModelParts(data).length;
+}
+
+function prettifyName(filename) {
+  return filename.replace('.json', '').replace(/_/g, ' ');
+}
+
+function getTransform(data) {
+  const render = (data.render || []).find(r => r.model_part);
+  return render?.transformation || null;
+}
+
+function getAllModelRenders(data) {
+  return (data.render || []).filter(r => r.model_part && r.transformation);
+}
+
+function applyTransformKey(name, key, value) {
+  getAllModelRenders(items[name].data).forEach(r => { r.transformation[key] = value; });
+  scheduleWrite(name);
+}
+
+function defaultTransform() {
+  return {
+    scale: [1, 1, 1],
+    translation: [0, 0, 0],
+    left_rotation: { axis: [0, 1, 0], angle: 0 },
+    right_rotation: { axis: [0, 1, 0], angle: 0 }
+  };
+}
+
+// ── File ops ───────────────────────────────────────────────────────────────
+async function openFolder() {
+  try {
+    dirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+    document.getElementById('folderPath').textContent = dirHandle.name;
+    document.getElementById('searchBox').disabled = false;
+    await loadFiles();
+  } catch(e) {
+    if (e.name !== 'AbortError') alert('Error: ' + e.message);
+  }
+}
+
+async function loadFiles() {
+  items = {};
+  for await (const [name, handle] of dirHandle.entries()) {
+    if (!name.endsWith('.json')) continue;
+    try {
+      const file = await handle.getFile();
+      const text = await file.text();
+      const data = JSON.parse(text);
+      const parts = getModelParts(data);
+      const isEqReplace = isEquipmentReplace(data);
+      if (parts.length === 0 && !isEqReplace) continue; // skip unknown types
+      items[name] = {
+        handle,
+        data,
+        originalJson: text,
+        category: getCategory(data),
+        modified: false
+      };
+    } catch(e) { console.warn('Skipping', name, e); }
+  }
+  if (currentMode === 'bulk') renderBulkSidebar();
+  else renderList();
+  document.getElementById('editorPanel').innerHTML = `<div class="empty-state"><div class="big">🎩</div><p>Select an item from the list</p></div>`;
+}
+
+async function writeFile(filename) {
+  const item = items[filename];
+  if (!item) return;
+  try {
+    const writable = await item.handle.createWritable();
+    await writable.write(JSON.stringify(item.data, null, 2));
+    await writable.close();
+    item.modified = (JSON.stringify(item.data) !== JSON.stringify(JSON.parse(item.originalJson)));
+    updateDot(filename);
+    flashReloadBadge();
+  } catch(e) {
+    alert(`Write failed for ${filename}:\n${e.message}\n\nTry re-opening the folder.`);
+  }
+}
+
+const _writeTimers = {};
+function scheduleWrite(filename) {
+  clearTimeout(_writeTimers[filename]);
+  _writeTimers[filename] = setTimeout(() => { delete _writeTimers[filename]; writeFile(filename); }, 300);
+}
+
+// ── List rendering ─────────────────────────────────────────────────────────
+function renderList() {
+  if (currentMode === 'models') { renderModelList(); return; }
+  renderTrinketList();
+}
+
+function renderTrinketList() {
+  const q = document.getElementById('searchBox').value.toLowerCase();
+  const list = document.getElementById('itemList');
+  list.innerHTML = '';
+  const sorted = Object.keys(items).sort();
+  const visible = sorted.filter(name => {
+    if (currentCat !== 'all' && items[name].category !== currentCat) return false;
+    if (q && !name.includes(q)) return false;
+    return true;
+  });
+  if (visible.length === 0) {
+    list.innerHTML = '<div style="padding:14px;color:var(--muted);font-size:11px;text-align:center;">No items</div>';
+    return;
+  }
+  visible.forEach(name => {
+    const item = items[name];
+    const el = document.createElement('div');
+    el.className = 'item-entry' + (name === selected ? ' sel' : '');
+    el.dataset.name = name;
+    const dot = document.createElement('div');
+    dot.className = 'item-dot' + (item.modified ? ' changed' : '');
+    dot.id = 'dot-' + name;
+    el.appendChild(dot);
+    const label = document.createElement('span');
+    label.textContent = prettifyName(name);
+    el.appendChild(label);
+    el.addEventListener('click', () => selectItem(name));
+    list.appendChild(el);
+  });
+}
+
+function updateDot(filename) {
+  const dot = document.getElementById('dot-' + filename);
+  if (dot) dot.className = 'item-dot' + (items[filename]?.modified ? ' changed' : '');
+}
+
+function selectItem(name) {
+  if (currentMode === 'models') { selectModelItem(name); return; }
+  selected = name;
+  document.querySelectorAll('.item-entry').forEach(el => el.classList.toggle('sel', el.dataset.name === name));
+  renderEditor(name);
+}
+
+// ── Editor rendering ───────────────────────────────────────────────────────
+function renderEditor(name) {
+  const item = items[name];
+  const data = item.data;
+
+  // equipment_replace — read-only info panel
+  if (isEquipmentReplace(data)) {
+    const panel = document.getElementById('editorPanel');
+    panel.innerHTML = '';
+    const header = div('editor-header');
+    header.appendChild(el('div', 'editor-name', prettifyName(name)));
+    header.appendChild(el('div', 'badge', item.category));
+    header.appendChild(el('div', 'badge', 'equipment_replace'));
+    panel.appendChild(header);
+
+    const infoCard = div('card');
+    infoCard.appendChild(el('div', 'card-header', 'Equipment Slot (read-only — scale from template)'));
+    const cb = div('card-body');
+    (data.render || []).filter(r => r.type === 'equipment_replace').forEach(r => {
+      const row = div('row');
+      row.style.cssText = 'gap:12px;flex-wrap:wrap;';
+      const slotEl = el('div', 'badge', `slot: ${r.equipment_slot || '—'}`);
+      const assetEl = el('div', 'badge', `asset: ${r.asset || '—'}`);
+      row.appendChild(slotEl);
+      row.appendChild(assetEl);
+      cb.appendChild(row);
+    });
+    const note = el('p', '', 'This item uses the vanilla equipment replacement pipeline. Its scale and positioning are controlled by the equipment asset template, not a transformation field.');
+    note.style.cssText = 'font-size:11px;color:var(--muted);margin-top:6px;line-height:1.6;';
+    cb.appendChild(note);
+    infoCard.appendChild(cb);
+    panel.appendChild(infoCard);
+    return;
+  }
+
+  const renders = (data.render || []).filter(r => r.model_part);
+  const firstRender = renders[0];
+  const hasT = !!firstRender?.transformation;
+
+  const panel = document.getElementById('editorPanel');
+  panel.innerHTML = '';
+
+  // Header
+  const header = div('editor-header');
+  header.appendChild(el('div', 'editor-name', prettifyName(name)));
+  renders.forEach(r => header.appendChild(el('div', 'badge', r.model_part)));
+  header.appendChild(el('div', 'badge', item.category));
+  const actions = div('editor-actions');
+  if (!hasT) {
+    const addBtn = button('Add Transformation', 'btn accent');
+    addBtn.onclick = () => {
+      data.render.filter(r => r.model_part).forEach(r => { r.transformation = defaultTransform(); });
+      writeFile(name).then(() => renderEditor(name));
+    };
+    actions.appendChild(addBtn);
+  } else {
+    const resetBtn = button('Reset All', 'btn');
+    resetBtn.onclick = () => {
+      if (!confirm('Reset this item to original file?')) return;
+      item.data = JSON.parse(item.originalJson);
+      item.modified = false;
+      updateDot(name);
+      renderEditor(name);
+    };
+    actions.appendChild(resetBtn);
+  }
+  header.appendChild(actions);
+  panel.appendChild(header);
+
+  if (!hasT) {
+    const note = div('');
+    note.style.cssText = 'color:var(--muted);font-size:12px;padding:6px 0;';
+    note.textContent = 'This item has no transformation. Click "Add Transformation" to begin editing.';
+    panel.appendChild(note);
+    return;
+  }
+
+  if (renders.length === 1) {
+    // Single render (hats, etc.): show cards directly without a section wrapper
+    const t = firstRender.transformation;
+    const onChange = (key, value) => { firstRender.transformation[key] = value; scheduleWrite(name); };
+    panel.appendChild(buildScaleCard(t, onChange));
+    panel.appendChild(buildTranslationCard(t, onChange));
+    panel.appendChild(buildRotationCard('Left Rotation', 'left_rotation', t, onChange));
+    panel.appendChild(buildRotationCard('Right Rotation', 'right_rotation', t, onChange));
+  } else {
+    // Multi render (body+arms, right_leg+left_leg): one labelled section per model_part
+    renders.forEach(r => {
+      const wrapper = div('render-section');
+      const secHdr = div('render-section-header');
+      secHdr.appendChild(el('span', 'render-part-label', r.model_part));
+      wrapper.appendChild(secHdr);
+      const t = r.transformation;
+      const onChange = (key, value) => { r.transformation[key] = value; scheduleWrite(name); };
+      wrapper.appendChild(buildScaleCard(t, onChange));
+      wrapper.appendChild(buildTranslationCard(t, onChange));
+      wrapper.appendChild(buildRotationCard('Left Rotation', 'left_rotation', t, onChange));
+      wrapper.appendChild(buildRotationCard('Right Rotation', 'right_rotation', t, onChange));
+      panel.appendChild(wrapper);
+    });
+  }
+
+  // Batch apply
+  panel.appendChild(buildBatchCard(name, item.category));
+}
+
+// ── Scale card ─────────────────────────────────────────────────────────────
+function buildScaleCard(t, onChange) {
+  const card = div('card');
+  const ch = div('card-header');
+  ch.innerHTML = '<span>Scale</span>';
+  const lockRow = div('lock-row');
+  const lockCb = document.createElement('input');
+  lockCb.type = 'checkbox';
+  lockCb.checked = t.scale[0] === t.scale[1] && t.scale[1] === t.scale[2];
+  lockRow.appendChild(lockCb);
+  const lockLabel = el('label', '', 'Uniform');
+  lockLabel.style.cursor = 'pointer';
+  lockLabel.onclick = () => { lockCb.checked = !lockCb.checked; lockCb.dispatchEvent(new Event('change')); };
+  lockRow.appendChild(lockLabel);
+  ch.appendChild(lockRow);
+  card.appendChild(ch);
+
+  const cb = div('card-body');
+  const axes = ['X', 'Y', 'Z'];
+  axes.forEach((ax, i) => {
+    const row = sliderRow(ax, t.scale[i], 0.1, 2.0, 0.001, v => {
+      if (lockCb.checked) {
+        t.scale = [v, v, v];
+        axes.forEach((a2, j) => {
+          if (j !== i) {
+            const s = card.querySelector(`[data-ax="scale-${a2}"]`);
+            if (s) { s.slider.value = v; s.num.value = v; }
+          }
+        });
+      } else {
+        t.scale[i] = v;
+      }
+      onChange('scale', [...t.scale]);
+    });
+    row.dataset.ax = `scale-${ax}`;
+    cb.appendChild(row);
+  });
+
+  lockCb.addEventListener('change', () => {
+    if (lockCb.checked) {
+      const avg = t.scale[0];
+      t.scale = [avg, avg, avg];
+      onChange('scale', [...t.scale]);
+      axes.forEach(a2 => {
+        const s = card.querySelector(`[data-ax="scale-${a2}"]`);
+        if (s) { s.slider.value = avg; s.num.value = avg; }
+      });
+    }
+  });
+
+  card.appendChild(cb);
+  return card;
+}
+
+// ── Translation card ───────────────────────────────────────────────────────
+function buildTranslationCard(t, onChange) {
+  const card = div('card');
+  card.appendChild(el('div', 'card-header', 'Translation  (blocks — 0.0625 = 1px)'));
+  const cb = div('card-body');
+  ['X', 'Y', 'Z'].forEach((ax, i) => {
+    const row = sliderRow(ax, t.translation[i], -1.5, 1.5, 0.001, v => {
+      t.translation[i] = v;
+      onChange('translation', [...t.translation]);
+    });
+    cb.appendChild(row);
+  });
+  card.appendChild(cb);
+  return card;
+}
+
+// ── Rotation card ──────────────────────────────────────────────────────────
+function buildRotationCard(title, key, t, onChange) {
+  const rot = t[key] || { axis: [0,1,0], angle: 0 };
+  const card = div('card');
+  card.appendChild(el('div', 'card-header', title));
+  const cb = div('card-body');
+
+  // Axis selector
+  const axisRow = div('axis-row');
+  axisRow.appendChild(el('span', 'axis-label', 'Axis'));
+  const axisNames = ['X', 'Y', 'Z'];
+  const axisVecs = [[1,0,0],[0,1,0],[0,0,1]];
+  const currentAxis = rot.axis;
+  axisNames.forEach((ax, i) => {
+    const b = button(ax, 'axis-btn');
+    const isOn = JSON.stringify(currentAxis) === JSON.stringify(axisVecs[i]);
+    if (isOn) b.classList.add('on');
+    b.onclick = () => {
+      rot.axis = [...axisVecs[i]];
+      onChange(key, { ...rot });
+      axisRow.querySelectorAll('.axis-btn').forEach((btn, j) => btn.classList.toggle('on', j === i));
+    };
+    axisRow.appendChild(b);
+  });
+  cb.appendChild(axisRow);
+
+  // Angle slider (degrees UI, radians stored)
+  const deg = rad2deg(rot.angle);
+  const angleRow = sliderRow('°', deg, -180, 180, 0.5, v => {
+    rot.angle = deg2rad(v);
+    onChange(key, { ...rot });
+  }, true);
+  cb.appendChild(angleRow);
+
+  card.appendChild(cb);
+  return card;
+}
+
+// ── Batch card ─────────────────────────────────────────────────────────────
+function buildBatchCard(name, category) {
+  const card = div('card');
+  card.appendChild(el('div', 'card-header', 'Batch Apply'));
+  const cb = div('card-body');
+  const note = el('p', '', `Copy this item's transformation to all other ${category}s:`);
+  note.style.cssText = 'font-size:11px;color:var(--muted);';
+  cb.appendChild(note);
+  const row = div('batch-row');
+  const applyBtn = button(`Apply to all ${category}s`, 'btn');
+  applyBtn.onclick = async () => {
+    const src = items[name].data.render.find(r => r.model_part)?.transformation;
+    if (!src) return;
+    if (!confirm(`Copy transformation to ALL ${category} items? This cannot be undone.`)) return;
+    const targets = Object.keys(items).filter(k => k !== name && items[k].category === category);
+    for (const k of targets) {
+      getAllModelRenders(items[k].data).forEach(r => {
+        r.transformation = JSON.parse(JSON.stringify(src));
+      });
+      await writeFile(k);
+    }
+    renderList();
+    alert(`Applied to ${targets.length} items.`);
+  };
+  row.appendChild(applyBtn);
+  cb.appendChild(row);
+  card.appendChild(cb);
+  return card;
+}
+
+// ── Slider row helper ──────────────────────────────────────────────────────
+function sliderRow(label, value, min, max, step, onChange, isDeg = false) {
+  const row = div('row');
+  row.appendChild(el('div', 'row-label', label));
+
+  const slider = document.createElement('input');
+  slider.type = 'range';
+  slider.min = min; slider.max = max; slider.step = step;
+  slider.value = value;
+
+  const num = document.createElement('input');
+  num.type = 'number';
+  num.className = 'num';
+  num.min = min; num.max = max; num.step = step;
+  num.value = isDeg ? parseFloat(value.toFixed(1)) : parseFloat(value.toFixed(4));
+
+  slider.addEventListener('input', () => {
+    const v = fmt(parseFloat(slider.value));
+    num.value = isDeg ? parseFloat(v.toFixed(1)) : parseFloat(v.toFixed(4));
+    onChange(v);
+  });
+  num.addEventListener('change', () => {
+    let v = fmt(clamp(parseFloat(num.value) || 0, min, max));
+    slider.value = v;
+    num.value = isDeg ? parseFloat(v.toFixed(1)) : parseFloat(v.toFixed(4));
+    onChange(v);
+  });
+
+  row.appendChild(slider);
+  row.appendChild(num);
+
+  if (isDeg) {
+    const rad = el('div', 'deg-label', 'deg');
+    row.appendChild(rad);
+  }
+
+  // store refs for batch sync
+  row.slider = slider;
+  row.num = num;
+
+  return row;
+}
+
+// ── DOM helpers ────────────────────────────────────────────────────────────
+function div(cls) { const d = document.createElement('div'); d.className = cls; return d; }
+function el(tag, cls, text) { const e = document.createElement(tag); e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+function button(text, cls) { const b = document.createElement('button'); b.textContent = text; b.className = cls; return b; }
+
+function flashReloadBadge() {
+  const b = document.getElementById('reloadBadge');
+  b.classList.add('show');
+  clearTimeout(flashReloadBadge._t);
+  flashReloadBadge._t = setTimeout(() => b.classList.remove('show'), 4000);
+}
+
+// ── Events ─────────────────────────────────────────────────────────────────
+document.getElementById('openBtn').addEventListener('click', () => {
+  if (currentMode === 'models') openModelFolder();
+  else openFolder();
+});
+
+document.getElementById('searchBox').addEventListener('input', renderList);
+
+document.getElementById('catTabs').addEventListener('click', e => {
+  const t = e.target.closest('.cat-tab');
+  if (!t) return;
+  currentCat = t.dataset.cat;
+  document.querySelectorAll('.cat-tab').forEach(b => b.classList.toggle('on', b === t));
+  renderList();
+});
+
+document.getElementById('modeTabs').addEventListener('click', e => {
+  const t = e.target.closest('.mode-tab');
+  if (!t) return;
+  currentMode = t.dataset.mode;
+  document.querySelectorAll('.mode-tab').forEach(b => b.classList.toggle('on', b === t));
+  switchMode();
+});
+
+// Keyboard shortcut: F5 to reload file list
+document.addEventListener('keydown', e => {
+  if (e.key === 'F5') {
+    e.preventDefault();
+    if (currentMode === 'models') { if (modelDirHandle) loadModelFiles(); }
+    else { if (dirHandle) loadFiles(); }
+  }
+});
+
+// ── Models mode ─────────────────────────────────────────────────────────────
+let currentMode = 'trinkets';
+let modelDirHandle = null;
+let modelItems = {};
+
+const TRINKET_CATS = ['all','hat','arm','body','legs','feet'];
+const MODEL_CATS   = ['all','template','onhead'];
+
+function switchMode() {
+  // swap category tabs
+  const catTabs = document.getElementById('catTabs');
+  catTabs.innerHTML = '';
+  const cats = currentMode === 'models' ? MODEL_CATS : TRINKET_CATS;
+  const labels = currentMode === 'models'
+    ? { all:'All', template:'Templates', onhead:'On-Head' }
+    : { all:'All', hat:'Hats', arm:'Arms', body:'Body', legs:'Legs', feet:'Feet' };
+  cats.forEach((c, i) => {
+    const b = document.createElement('button');
+    b.className = 'cat-tab' + (i === 0 ? ' on' : '');
+    b.dataset.cat = c;
+    b.textContent = labels[c];
+    catTabs.appendChild(b);
+  });
+  currentCat = 'all';
+
+  const fp = document.getElementById('folderPath');
+  const sb = document.getElementById('searchBox');
+  if (currentMode === 'models') {
+    fp.textContent = modelDirHandle ? modelDirHandle.name : 'No models folder open';
+    sb.disabled = !modelDirHandle;
+    if (modelDirHandle) renderList();
+    else { document.getElementById('itemList').innerHTML = '<div style="padding:14px;color:var(--muted);font-size:11px;text-align:center;">Open models/item folder</div>'; }
+  } else if (currentMode === 'bulk') {
+    fp.textContent = dirHandle ? dirHandle.name : 'No folder open';
+    sb.disabled = true;
+    catTabs.innerHTML = '';
+    if (dirHandle) renderBulkSidebar();
+    else { document.getElementById('itemList').innerHTML = '<div style="padding:14px;color:var(--muted);font-size:11px;text-align:center;">Open trinkets folder first</div>'; }
+  } else {
+    fp.textContent = dirHandle ? dirHandle.name : 'No folder open';
+    sb.disabled = !dirHandle;
+    if (dirHandle) renderList();
+    else { document.getElementById('itemList').innerHTML = '<div style="padding:14px;color:var(--muted);font-size:11px;text-align:center;">Open a folder to begin</div>'; }
+  }
+  document.getElementById('editorPanel').innerHTML = '<div class="empty-state"><div class="big">🎩</div><p>Select an item</p></div>';
+}
+
+// ── Bulk Edit mode ─────────────────────────────────────────────────────────
+let selectedBulkPart = null;
+
+const PART_LABELS = { head:'Head', body:'Body', right_arm:'Right Arm', left_arm:'Left Arm', right_leg:'Right Leg', left_leg:'Left Leg' };
+const PART_ORDER  = ['head','body','right_arm','left_arm','right_leg','left_leg'];
+
+function renderBulkSidebar() {
+  const counts = {};
+  Object.values(items).forEach(item => {
+    getAllModelRenders(item.data).forEach(r => {
+      if (r.model_part && r.transformation) counts[r.model_part] = (counts[r.model_part] || 0) + 1;
+    });
+  });
+
+  const list = document.getElementById('itemList');
+  list.innerHTML = '';
+  const parts = [...new Set([...PART_ORDER, ...Object.keys(counts)])].filter(p => counts[p]);
+
+  if (!parts.length) {
+    list.innerHTML = '<div style="padding:14px;color:var(--muted);font-size:11px;text-align:center;">No items with transformations</div>';
+    return;
+  }
+
+  parts.forEach(part => {
+    const entry = div('bulk-part-entry' + (part === selectedBulkPart ? ' sel' : ''));
+    entry.appendChild(el('span', 'bulk-part-name', PART_LABELS[part] || part));
+    entry.appendChild(el('span', 'bulk-part-count', counts[part] + ' items'));
+    entry.addEventListener('click', () => {
+      selectedBulkPart = part;
+      document.querySelectorAll('.bulk-part-entry').forEach(e => e.classList.toggle('sel', e === entry));
+      renderBulkEditor(part);
+    });
+    list.appendChild(entry);
+  });
+}
+
+function renderBulkEditor(modelPart) {
+  // Collect all renders for this part
+  const targets = [];
+  Object.entries(items).forEach(([name, item]) => {
+    getAllModelRenders(item.data).forEach(r => {
+      if (r.model_part === modelPart && r.transformation) targets.push({ name, r });
+    });
+  });
+  if (!targets.length) return;
+
+  // Baseline from first item's transform
+  const first = targets[0].r.transformation;
+  const baseline = {
+    scale:          [...(first.scale         || [1,1,1])],
+    translation:    [...(first.translation   || [0,0,0])],
+    left_rotation:  { ...(first.left_rotation  || { axis:[0,1,0], angle:0 }) },
+    right_rotation: { ...(first.right_rotation || { axis:[0,1,0], angle:0 }) },
+  };
+
+  // Update in-memory immediately; debounce disk writes so rapid slider drags
+  // don't fire dozens of concurrent file writes that can corrupt JSON.
+  let bulkWriteTimer = null;
+  const flushBulkWrites = () => {
+    bulkWriteTimer = null;
+    const names = [...new Set(targets.map(t => t.name))];
+    (async () => { for (const name of names) await writeFile(name); })();
+  };
+
+  const onChange = (key, value) => {
+    const v = JSON.parse(JSON.stringify(value));
+    targets.forEach(({ name, r }) => { r.transformation[key] = v; });
+    clearTimeout(bulkWriteTimer);
+    bulkWriteTimer = setTimeout(flushBulkWrites, 400);
+  };
+
+  const panel = document.getElementById('editorPanel');
+  panel.innerHTML = '';
+
+  const header = div('editor-header');
+  header.appendChild(el('div', 'editor-name', PART_LABELS[modelPart] || modelPart));
+  header.appendChild(el('div', 'badge', targets.length + ' items'));
+  const note = el('div', 'badge', 'bulk edit — affects all');
+  note.style.cssText = 'background:rgba(210,153,34,0.15);border-color:rgba(210,153,34,0.4);color:var(--warn);';
+  header.appendChild(note);
+  panel.appendChild(header);
+
+  panel.appendChild(buildScaleCard(baseline, onChange));
+  panel.appendChild(buildTranslationCard(baseline, onChange));
+  panel.appendChild(buildRotationCard('Left Rotation', 'left_rotation', baseline, onChange));
+  panel.appendChild(buildRotationCard('Right Rotation', 'right_rotation', baseline, onChange));
+}
+
+async function openModelFolder() {
+  try {
+    modelDirHandle = await window.showDirectoryPicker({ mode: 'readwrite' });
+    document.getElementById('folderPath').textContent = modelDirHandle.name;
+    document.getElementById('searchBox').disabled = false;
+    await loadModelFiles();
+  } catch(e) { if (e.name !== 'AbortError') alert('Error: ' + e.message); }
+}
+
+async function loadModelFiles() {
+  modelItems = {};
+  for await (const [name, handle] of modelDirHandle.entries()) {
+    if (!name.endsWith('.json')) continue;
+    try {
+      const file = await handle.getFile();
+      const text = await file.text();
+      const data = JSON.parse(text);
+      if (!data.display && !data.parent) continue; // skip non-model files
+      const cat = getModelFileCat(name, data);
+      modelItems[name] = { handle, data, originalJson: text, category: cat, modified: false };
+    } catch(e) { /* skip */ }
+  }
+  renderList();
+  document.getElementById('editorPanel').innerHTML = '<div class="empty-state"><div class="big">🎩</div><p>Select an item</p></div>';
+}
+
+function getModelFileCat(name, data) {
+  if (name.startsWith('template_')) return 'template';
+  if (name.endsWith('_on_head.json')) return 'onhead';
+  return 'other';
+}
+
+function renderModelList() {
+  const q = document.getElementById('searchBox').value.toLowerCase();
+  const list = document.getElementById('itemList');
+  list.innerHTML = '';
+  const sorted = Object.keys(modelItems).sort();
+  const visible = sorted.filter(name => {
+    if (currentCat !== 'all' && modelItems[name].category !== currentCat) return false;
+    if (q && !name.includes(q)) return false;
+    return true;
+  });
+  if (!visible.length) { list.innerHTML = '<div style="padding:14px;color:var(--muted);font-size:11px;text-align:center;">No items</div>'; return; }
+  visible.forEach(name => {
+    const item = modelItems[name];
+    const entry = document.createElement('div');
+    entry.className = 'item-entry' + (name === selected ? ' sel' : '');
+    entry.dataset.name = name;
+    const dot = document.createElement('div');
+    dot.className = 'item-dot' + (item.modified ? ' changed' : '');
+    dot.id = 'mdot-' + name;
+    entry.appendChild(dot);
+    const lbl = document.createElement('span');
+    lbl.textContent = prettifyName(name);
+    entry.appendChild(lbl);
+    entry.addEventListener('click', () => selectModelItem(name));
+    list.appendChild(entry);
+  });
+}
+
+function selectModelItem(name) {
+  selected = name;
+  document.querySelectorAll('.item-entry').forEach(e => e.classList.toggle('sel', e.dataset.name === name));
+  renderModelEditor(name);
+}
+
+function renderModelEditor(name) {
+  const item = modelItems[name];
+  const data = item.data;
+  const panel = document.getElementById('editorPanel');
+  panel.innerHTML = '';
+
+  const header = div('editor-header');
+  header.appendChild(el('div', 'editor-name', prettifyName(name)));
+  header.appendChild(el('div', 'badge', item.category));
+  if (data.parent) header.appendChild(el('div', 'badge', 'parent: ' + data.parent.split('/').pop()));
+  const acts = div('editor-actions');
+  const resetBtn = button('Reset', 'btn');
+  resetBtn.onclick = () => {
+    if (!confirm('Reset to original?')) return;
+    item.data = JSON.parse(item.originalJson);
+    item.modified = false;
+    const dot = document.getElementById('mdot-' + name);
+    if (dot) dot.className = 'item-dot';
+    renderModelEditor(name);
+  };
+  acts.appendChild(resetBtn);
+  header.appendChild(acts);
+  panel.appendChild(header);
+
+  const ctxNames = { head:'Head (vanilla slot)', thirdperson_righthand:'3rd Person Right', thirdperson_lefthand:'3rd Person Left', firstperson_righthand:'1st Person Right', firstperson_lefthand:'1st Person Left', gui:'GUI' };
+  const display = data.display || {};
+
+  // Show all display contexts present, plus head always
+  const ctxKeys = ['head', ...Object.keys(display).filter(k => k !== 'head')];
+
+  ctxKeys.forEach((ctx, i) => {
+    const block = buildDisplayCtxBlock(ctx, ctxNames[ctx] || ctx, display[ctx] || {}, i === 0, name, item, data);
+    panel.appendChild(block);
+  });
+
+  if (!Object.keys(display).length) {
+    const note = el('p', '', 'No display contexts defined. Any context added here will override the parent template.');
+    note.style.cssText = 'font-size:11px;color:var(--muted);';
+    panel.appendChild(note);
+  }
+}
+
+function buildDisplayCtxBlock(ctxKey, ctxLabel, ctx, expanded, filename, item, data) {
+  const block = div('ctx-block');
+  const hdr = div('ctx-header');
+  hdr.innerHTML = `<span>${ctxLabel}</span><span class="ctx-arrow">${expanded ? '▾' : '▸'}</span>`;
+  const body = div('ctx-body' + (expanded ? '' : ' collapsed'));
+  hdr.addEventListener('click', () => {
+    const collapsed = body.classList.toggle('collapsed');
+    hdr.querySelector('.ctx-arrow').textContent = collapsed ? '▸' : '▾';
+  });
+  block.appendChild(hdr);
+
+  const fields = { rotation: [0,0,0], translation: [0,0,0], scale: [1,1,1] };
+  const present = Object.keys(ctx).filter(k => fields[k]);
+
+  // Add missing defaults silently
+  Object.entries(fields).forEach(([field, def]) => {
+    if (!ctx[field]) ctx[field] = [...def];
+  });
+
+  ['rotation','translation','scale'].forEach(field => {
+    const subhdr = el('div', '', field.charAt(0).toUpperCase() + field.slice(1));
+    subhdr.style.cssText = 'font-size:10px;font-weight:600;text-transform:uppercase;color:var(--muted);letter-spacing:0.5px;margin-top:4px;';
+    body.appendChild(subhdr);
+    const ranges = { rotation: [-180,180,0.5], translation: [-16,16,0.1], scale: [0.1,3,0.01] };
+    const [min,max,step] = ranges[field];
+    ['X','Y','Z'].forEach((ax, i) => {
+      const isDeg = field === 'rotation';
+      const row = sliderRow(ax, ctx[field][i], min, max, step, v => {
+        if (!data.display) data.display = {};
+        if (!data.display[ctxKey]) data.display[ctxKey] = {};
+        if (!data.display[ctxKey][field]) data.display[ctxKey][field] = [0,0,0];
+        data.display[ctxKey][field][i] = v;
+        ctx[field][i] = v;
+        writeModelFile(filename, item);
+      }, isDeg);
+      body.appendChild(row);
+    });
+  });
+
+  block.appendChild(body);
+  return block;
+}
+
+async function writeModelFile(filename, item) {
+  const writable = await item.handle.createWritable();
+  await writable.write(JSON.stringify(item.data, null, '\t'));
+  await writable.close();
+  item.modified = (JSON.stringify(item.data) !== JSON.stringify(JSON.parse(item.originalJson)));
+  const dot = document.getElementById('mdot-' + filename);
+  if (dot) dot.className = 'item-dot' + (item.modified ? ' changed' : '');
+  flashReloadBadge();
+}
+</script>
+</body>
+</html>
