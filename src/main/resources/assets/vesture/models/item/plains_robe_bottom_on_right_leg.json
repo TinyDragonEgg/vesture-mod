@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_right_leg",
     "textures":  {
-                     "layer0":  "vesture:item/plains_robe_bottom",
-                     "layer1":  "vesture:item/plains_robe_bottom"
+                     "layer0":  "vesture:item/equipment/villager_plains",
+                     "layer1":  "vesture:item/equipment/villager_plains"
                  }
 }

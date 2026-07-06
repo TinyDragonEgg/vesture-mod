@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_right_leg",
     "textures":  {
-                     "layer0":  "vesture:item/plaid_pants",
-                     "layer1":  "vesture:item/plaid_pants"
+                     "layer0":  "vesture:item/equipment/vindicator",
+                     "layer1":  "vesture:item/equipment/vindicator_overlay"
                  }
 }

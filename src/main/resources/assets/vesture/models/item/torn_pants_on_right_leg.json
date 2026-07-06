@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_right_leg",
     "textures":  {
-                     "layer0":  "vesture:item/torn_pants",
-                     "layer1":  "vesture:item/torn_pants"
+                     "layer0":  "vesture:item/equipment/stray",
+                     "layer1":  "vesture:item/equipment/stray"
                  }
 }

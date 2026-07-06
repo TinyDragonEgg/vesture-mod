@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_right_leg",
     "textures":  {
-                     "layer0":  "vesture:item/chasuble_bottom",
-                     "layer1":  "vesture:item/chasuble_bottom_overlay"
+                     "layer0":  "vesture:item/equipment/villager_cleric",
+                     "layer1":  "vesture:item/equipment/villager_cleric_overlay"
                  }
 }

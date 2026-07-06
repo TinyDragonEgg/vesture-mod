@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_left_leg",
     "textures":  {
-                     "layer0":  "vesture:item/evokers_robe_bottom",
-                     "layer1":  "vesture:item/evokers_robe_bottom_overlay"
+                     "layer0":  "vesture:item/equipment/evoker",
+                     "layer1":  "vesture:item/equipment/evoker_overlay"
                  }
 }

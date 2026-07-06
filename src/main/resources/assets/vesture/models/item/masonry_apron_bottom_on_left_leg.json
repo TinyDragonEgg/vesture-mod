@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_left_leg",
     "textures":  {
-                     "layer0":  "vesture:item/masonry_apron_bottom",
-                     "layer1":  "vesture:item/masonry_apron_bottom_overlay"
+                     "layer0":  "vesture:item/equipment/villager_mason",
+                     "layer1":  "vesture:item/equipment/villager_mason_overlay"
                  }
 }

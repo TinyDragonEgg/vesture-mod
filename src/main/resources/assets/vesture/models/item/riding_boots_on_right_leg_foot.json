@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_right_leg_foot",
     "textures":  {
-                     "layer0":  "vesture:item/riding_boots",
-                     "layer1":  "vesture:item/riding_boots"
+                     "layer0":  "vesture:item/equipment/bee_friender",
+                     "layer1":  "vesture:item/equipment/bee_friender_overlay"
                  }
 }

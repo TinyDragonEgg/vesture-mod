@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_left_leg_foot",
     "textures":  {
-                     "layer0":  "vesture:item/knee_high_boots",
-                     "layer1":  "vesture:item/knee_high_boots"
+                     "layer0":  "vesture:item/equipment/party_alex",
+                     "layer1":  "vesture:item/equipment/party_alex"
                  }
 }
