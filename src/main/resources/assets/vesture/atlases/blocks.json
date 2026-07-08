@@ -4,6 +4,11 @@
       "type": "directory",
       "source": "item/equipment",
       "prefix": "item/equipment/"
+    },
+    {
+      "type": "directory",
+      "source": "entity/equipment/humanoid_leggings",
+      "prefix": "entity/equipment/humanoid_leggings/"
     }
   ]
 }

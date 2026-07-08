@@ -20,6 +20,45 @@
 			}
 		},
 		{
+			"name": "body_inner",
+			"from": [12, 13, 10],
+			"to": [4, 1, 6],
+			"faces": {
+				"north": {"uv": [5, 16, 7, 10], "texture": "#0"},
+				"south": {"uv": [8, 16, 10, 10], "texture": "#0"},
+				"east":  {"uv": [4, 16, 5, 10], "texture": "#0"},
+				"west":  {"uv": [7, 16, 8, 10], "texture": "#0"},
+				"up":    {"uv": [9, 8, 7, 10], "texture": "#0"},
+				"down":  {"uv": [7, 8, 5, 10], "texture": "#0"}
+			}
+		},
+		{
+			"name": "body_overlay_flush",
+			"from": [3.99, 0.99, 5.99],
+			"to": [12.01, 13.01, 10.01],
+			"faces": {
+				"north": {"uv": [8, 10, 10, 16], "texture": "#1"},
+				"south": {"uv": [5, 10, 7, 16], "texture": "#1"},
+				"east":  {"uv": [7, 10, 8, 16], "texture": "#1"},
+				"west":  {"uv": [4, 10, 5, 16], "texture": "#1"},
+				"up":    {"uv": [5, 8, 7, 10], "texture": "#1"},
+				"down":  {"uv": [7, 8, 9, 10], "texture": "#1"}
+			}
+		},
+		{
+			"name": "body_overlay_flush_inner",
+			"from": [12.01, 13.01, 10.01],
+			"to": [3.99, 0.99, 5.99],
+			"faces": {
+				"north": {"uv": [5, 16, 7, 10], "texture": "#1"},
+				"south": {"uv": [8, 16, 10, 10], "texture": "#1"},
+				"east":  {"uv": [4, 16, 5, 10], "texture": "#1"},
+				"west":  {"uv": [7, 16, 8, 10], "texture": "#1"},
+				"up":    {"uv": [9, 8, 7, 10], "texture": "#1"},
+				"down":  {"uv": [7, 8, 5, 10], "texture": "#1"}
+			}
+		},
+		{
 			"name": "body_overlay",
 			"from": [3.75, 0.75, 5.75],
 			"to": [12.25, 13.25, 10.25],

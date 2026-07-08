@@ -10,13 +10,46 @@
       "model": "vesture:item/ragged_pants_on_right_leg",
       "transformation": {
         "scale": [
+          1.02,
+          1.02,
+          1.02
+        ],
+        "translation": [
+          -0.005,
+          0.25,
+          0
+        ],
+        "left_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        },
+        "right_rotation": {
+          "axis": [
+            0,
+            1,
+            0
+          ],
+          "angle": 0
+        }
+      }
+    },
+    {
+      "type": "model",
+      "model_part": "body",
+      "model": "vesture:item/ragged_pants_waistband",
+      "transformation": {
+        "scale": [
+          1.03,
           1.01,
-          1.01,
-          1.01
+          1.05
         ],
         "translation": [
           0,
-          0.125,
+          0.25,
           0
         ],
         "left_rotation": {
@@ -43,13 +76,13 @@
       "model": "vesture:item/ragged_pants_on_left_leg",
       "transformation": {
         "scale": [
-          1.01,
-          1.01,
-          1.01
+          1.02,
+          1.02,
+          1.02
         ],
         "translation": [
-          0,
-          0.125,
+          0.005,
+          0.25,
           0
         ],
         "left_rotation": {

@@ -356,6 +356,14 @@ function getAllModelRenders(data) {
   return (data.render || []).filter(r => r.model_part && r.transformation);
 }
 
+function getRenderBulkKey(r) {
+  const part = r.model_part;
+  const model = r.model || '';
+  if ((part === 'right_leg' || part === 'left_leg') && /_foot/.test(model)) return part + ':foot';
+  if (part === 'body' && /_waistband/.test(model)) return 'body:waistband';
+  return part;
+}
+
 function applyTransformKey(name, key, value) {
   getAllModelRenders(items[name].data).forEach(r => { r.transformation[key] = value; });
   scheduleWrite(name);
@@ -859,14 +867,27 @@ function switchMode() {
 // ── Bulk Edit mode ─────────────────────────────────────────────────────────
 let selectedBulkPart = null;
 
-const PART_LABELS = { head:'Head', body:'Body', right_arm:'Right Arm', left_arm:'Left Arm', right_leg:'Right Leg', left_leg:'Left Leg' };
-const PART_ORDER  = ['head','body','right_arm','left_arm','right_leg','left_leg'];
+const PART_LABELS = {
+  head: 'Head',
+  body: 'Body',
+  'body:waistband': 'Body — Waistband',
+  right_arm: 'Right Arm',
+  left_arm: 'Left Arm',
+  right_leg: 'Right Leg — Pants',
+  'right_leg:foot': 'Right Leg — Foot',
+  left_leg: 'Left Leg — Pants',
+  'left_leg:foot': 'Left Leg — Foot',
+};
+const PART_ORDER = ['head','body','body:waistband','right_arm','left_arm','right_leg','right_leg:foot','left_leg','left_leg:foot'];
 
 function renderBulkSidebar() {
   const counts = {};
   Object.values(items).forEach(item => {
     getAllModelRenders(item.data).forEach(r => {
-      if (r.model_part && r.transformation) counts[r.model_part] = (counts[r.model_part] || 0) + 1;
+      if (r.model_part && r.transformation) {
+        const key = getRenderBulkKey(r);
+        counts[key] = (counts[key] || 0) + 1;
+      }
     });
   });
 
@@ -879,25 +900,25 @@ function renderBulkSidebar() {
     return;
   }
 
-  parts.forEach(part => {
-    const entry = div('bulk-part-entry' + (part === selectedBulkPart ? ' sel' : ''));
-    entry.appendChild(el('span', 'bulk-part-name', PART_LABELS[part] || part));
-    entry.appendChild(el('span', 'bulk-part-count', counts[part] + ' items'));
+  parts.forEach(key => {
+    const entry = div('bulk-part-entry' + (key === selectedBulkPart ? ' sel' : ''));
+    entry.appendChild(el('span', 'bulk-part-name', PART_LABELS[key] || key));
+    entry.appendChild(el('span', 'bulk-part-count', counts[key] + ' items'));
     entry.addEventListener('click', () => {
-      selectedBulkPart = part;
+      selectedBulkPart = key;
       document.querySelectorAll('.bulk-part-entry').forEach(e => e.classList.toggle('sel', e === entry));
-      renderBulkEditor(part);
+      renderBulkEditor(key);
     });
     list.appendChild(entry);
   });
 }
 
-function renderBulkEditor(modelPart) {
-  // Collect all renders for this part
+function renderBulkEditor(bulkKey) {
+  // Collect all renders for this key (model_part + subtype)
   const targets = [];
   Object.entries(items).forEach(([name, item]) => {
     getAllModelRenders(item.data).forEach(r => {
-      if (r.model_part === modelPart && r.transformation) targets.push({ name, r });
+      if (getRenderBulkKey(r) === bulkKey && r.transformation) targets.push({ name, r });
     });
   });
   if (!targets.length) return;
@@ -931,7 +952,7 @@ function renderBulkEditor(modelPart) {
   panel.innerHTML = '';
 
   const header = div('editor-header');
-  header.appendChild(el('div', 'editor-name', PART_LABELS[modelPart] || modelPart));
+  header.appendChild(el('div', 'editor-name', PART_LABELS[bulkKey] || bulkKey));
   header.appendChild(el('div', 'badge', targets.length + ' items'));
   const note = el('div', 'badge', 'bulk edit — affects all');
   note.style.cssText = 'background:rgba(210,153,34,0.15);border-color:rgba(210,153,34,0.4);color:var(--warn);';

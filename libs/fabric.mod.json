@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "id": "trinkets_updated",
+  "version": "4.1.0-beta.2+26.2",
+  "provides": [
+    "trinkets",
+    "trinkets-updated"
+  ],
+  "name": "Trinkets Updated",
+  "description": "Adds a data-driven accessory system to Minecraft",
+  "authors": [
+    {
+      "name": "Emi",
+      "contact": {
+        "github": "https://github.com/emilyploszaj"
+      }
+    },
+    {
+      "name": "C4",
+      "contact": {
+        "github": "https://github.com/TheIllusiveC4"
+      }
+    },
+    {
+      "name": "Patbox",
+      "contact": {
+        "github": "https://github.com/Patbox"
+      }
+    }
+  ],
+  "contact": {
+    "homepage": "https://pb4.eu/",
+    "sources": "https://github.com/Patbox/trinkets"
+  },
+  "license": "MIT",
+  "icon": "assets/trinkets/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "yumi:init": [
+      "eu.pb4.trinkets.impl.TrinketsMain"
+    ],
+    "yumi:client_init": [
+      "eu.pb4.trinkets.impl.client.TrinketsClient"
+    ],
+    "modmenu": [
+      "eu.pb4.trinkets.impl.platform.fabric.ModMenuCompatibility"
+    ],
+    "rei_client_": [
+      "eu.pb4.trinkets.impl.client.compat.TrinketsREIPlugin"
+    ],
+    "emi_": [
+      "eu.pb4.trinkets.impl.client.compat.TrinketsEmiPlugin"
+    ]
+  },
+  "accessWidener": "trinkets.classtweaker",
+  "mixins": [
+    "trinkets.mixins.json",
+    "trinkets.fabric.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "26.2.x",
+    "fabricloader": "\u003e\u003d0.19.0",
+    "fabric-api": "*",
+    "yumi_mc_core": "\u003e\u003d1.1.0+26.2"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://pb4.eu/discord"
+      },
+      "badges": [
+        "library"
+      ],
+      "update_checker": true
+    }
+  },
+  "jars": [
+    {
+      "file": "META-INF/jars/yumi-mc-foundation-1.1.1+26.2.jar"
+    }
+  ]
+}

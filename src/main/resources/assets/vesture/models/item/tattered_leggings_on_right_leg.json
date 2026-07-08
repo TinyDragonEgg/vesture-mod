@@ -1,7 +1,7 @@
-﻿{
+{
     "parent":  "vesture:item/template_player_right_leg",
     "textures":  {
-                     "layer0":  "vesture:item/equipment/husk",
-                     "layer1":  "vesture:item/equipment/husk"
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/husk",
+                     "layer1":  "vesture:item/equipment/humanoid_leggings/husk"
                  }
 }

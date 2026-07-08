@@ -1,5 +1,6 @@
 package net.yahya.vesture.item;
 
+import eu.pb4.trinkets.api.TrinketDropRule;
 import eu.pb4.trinkets.api.component.TrinketDataComponents;
 import eu.pb4.trinkets.api.component.TrinketEquippable;
 import net.minecraft.core.component.DataComponents;
@@ -26,6 +27,7 @@ public class CosmeticItem extends Item {
             TrinketEquippable.DEFAULT
                 .withSlots(slot.trinketsId())
                 .withAssetId(equipmentModel)
+                .withDropRule(TrinketDropRule.DROP)
         );
         EquipmentSlot vanillaSlot = slot.vanillaSlot();
         if (vanillaSlot != null) {

@@ -1,7 +1,7 @@
-﻿{
+{
     "parent":  "vesture:item/template_player_right_leg",
     "textures":  {
-                     "layer0":  "vesture:item/equipment/villager_taiga",
-                     "layer1":  "vesture:item/equipment/villager_taiga"
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/villager_taiga",
+                     "layer1":  "vesture:item/equipment/humanoid_leggings/villager_taiga"
                  }
 }

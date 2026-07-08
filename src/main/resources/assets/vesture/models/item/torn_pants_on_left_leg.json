@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_left_leg",
     "textures":  {
-                     "layer0":  "vesture:item/equipment/stray",
-                     "layer1":  "vesture:item/equipment/stray"
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/stray",
+                     "layer1":  "vesture:item/equipment/humanoid_leggings/stray"
                  }
 }

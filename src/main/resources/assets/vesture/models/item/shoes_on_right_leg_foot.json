@@ -1,7 +1,7 @@
-﻿{
+{
     "parent":  "vesture:item/template_player_right_leg_foot",
     "textures":  {
-                     "layer0":  "vesture:item/equipment/steve",
-                     "layer1":  "vesture:item/equipment/steve"
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/steve",
+                     "layer1":  "vesture:item/equipment/humanoid_leggings/steve"
                  }
 }

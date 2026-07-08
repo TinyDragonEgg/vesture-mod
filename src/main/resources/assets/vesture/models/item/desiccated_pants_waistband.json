@@ -1,0 +1,7 @@
+{
+    "parent":  "vesture:item/template_player_waistband",
+    "textures":  {
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/parched",
+                     "layer1":  "vesture:item/equipment/humanoid_leggings/parched"
+                 }
+}

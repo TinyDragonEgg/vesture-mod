@@ -1,7 +1,7 @@
-﻿{
+{
     "parent":  "vesture:item/template_player_right_leg_foot",
     "textures":  {
-                     "layer0":  "vesture:item/equipment/wandering_trader",
-                     "layer1":  "vesture:item/equipment/wandering_trader_overlay"
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/wandering_trader",
+                     "layer1":  "vesture:item/equipment/humanoid_leggings/wandering_trader_overlay"
                  }
 }

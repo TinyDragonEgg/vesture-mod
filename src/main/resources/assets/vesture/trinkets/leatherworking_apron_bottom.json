@@ -10,13 +10,13 @@
       "model": "vesture:item/leatherworking_apron_bottom_on_right_leg",
       "transformation": {
         "scale": [
-          1.01,
-          1.01,
-          1.01
+          1.02,
+          1.02,
+          1.02
         ],
         "translation": [
-          0,
-          0.125,
+          -0.005,
+          0.25,
           0
         ],
         "left_rotation": {
@@ -43,13 +43,13 @@
       "model": "vesture:item/leatherworking_apron_bottom_on_left_leg",
       "transformation": {
         "scale": [
-          1.01,
-          1.01,
-          1.01
+          1.02,
+          1.02,
+          1.02
         ],
         "translation": [
-          0,
-          0.125,
+          0.005,
+          0.25,
           0
         ],
         "left_rotation": {

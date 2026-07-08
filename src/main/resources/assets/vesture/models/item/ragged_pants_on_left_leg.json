@@ -1,7 +1,7 @@
 ﻿{
     "parent":  "vesture:item/template_player_left_leg",
     "textures":  {
-                     "layer0":  "vesture:item/equipment/drowned",
-                     "layer1":  "vesture:item/equipment/drowned"
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/drowned",
+                     "layer1":  "vesture:item/equipment/humanoid_leggings/drowned"
                  }
 }

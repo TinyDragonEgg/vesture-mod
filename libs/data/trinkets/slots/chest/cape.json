@@ -1,0 +1,5 @@
+{
+  "icon": "trinkets:container/slots/cape",
+  "order": -256,
+  "validator_predicates": ["trinkets:default"]
+}

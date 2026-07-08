@@ -10,13 +10,28 @@ import net.minecraft.commands.CommandBuildContext;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.permissions.LevelBasedPermissionSet;
 import net.minecraft.server.permissions.PermissionLevel;
 import net.minecraft.server.permissions.PermissionSet;
+import eu.pb4.trinkets.api.TrinketsApi;
+import net.minecraft.world.entity.decoration.ArmorStand;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.ChestBlockEntity;
+import net.yahya.vesture.item.CosmeticItem;
 import net.yahya.vesture.item.CosmeticSlot;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 public final class VestureCommands {
@@ -88,9 +103,15 @@ public final class VestureCommands {
                 .then(Commands.argument("target", EntityArgument.player())
                     .then(adminSetNode)));
 
+        // /vesture test  → spawn chest(s) + armor stands for all equipment sets
+        var testNode = Commands.literal("test")
+            .requires(IS_OP)
+            .executes(VestureCommands::cmdTest);
+
         dispatcher.register(Commands.literal("vesture")
             .then(slotsNode)
-            .then(adminNode));
+            .then(adminNode)
+            .then(testNode));
     }
 
     // /vesture slots  or  /vesture slots get
@@ -154,5 +175,78 @@ public final class VestureCommands {
         ctx.getSource().sendSuccess(() -> Component.literal(
                 "Set " + target.getName().getString() + "'s " + slot.name().toLowerCase() + " slots to " + count), true);
         return count;
+    }
+
+    // /vesture test
+    private static int cmdTest(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {
+        ServerPlayer player = ctx.getSource().getPlayerOrException();
+        ServerLevel level = (ServerLevel) player.level();
+        BlockPos playerPos = player.blockPosition();
+
+        // Group CosmeticItems by equipment model ID — same model = same set
+        Map<Identifier, List<CosmeticItem>> sets = new LinkedHashMap<>();
+        List<CosmeticItem> standalone = new ArrayList<>();
+
+        for (Item item : BuiltInRegistries.ITEM) {
+            if (item instanceof CosmeticItem ci) {
+                Identifier model = ci.getEquipmentModel();
+                if (model != null) {
+                    sets.computeIfAbsent(model, k -> new ArrayList<>()).add(ci);
+                } else {
+                    standalone.add(ci);
+                }
+            }
+        }
+
+        // Full item list: sets first (so chest is organized by set), then accessories
+        List<CosmeticItem> allItems = new ArrayList<>();
+        sets.values().forEach(allItems::addAll);
+        allItems.addAll(standalone);
+
+        // Place chests in a row going north (z-1, z-2, ...), 27 items each
+        int chestsNeeded = (allItems.size() + 26) / 27;
+        for (int c = 0; c < chestsNeeded; c++) {
+            BlockPos chestPos = playerPos.offset(c, 0, -1);
+            level.setBlock(chestPos, Blocks.CHEST.defaultBlockState(), 3);
+            if (level.getBlockEntity(chestPos) instanceof ChestBlockEntity chest) {
+                int start = c * 27;
+                int end = Math.min(start + 27, allItems.size());
+                for (int i = start; i < end; i++) {
+                    chest.setItem(i - start, new ItemStack(allItems.get(i)));
+                }
+            }
+        }
+
+        // Spawn one labeled armor stand per set, in a 10-wide grid going east then south
+        int standIdx = 0;
+        for (Map.Entry<Identifier, List<CosmeticItem>> entry : sets.entrySet()) {
+            double x = playerPos.getX() + 2 + (standIdx % 10) * 2.0;
+            double y = playerPos.getY();
+            double z = playerPos.getZ() + (standIdx / 10) * 2.0;
+
+            ArmorStand stand = new ArmorStand(level, x, y, z);
+            stand.setCustomName(Component.literal(entry.getKey().getPath()));
+            stand.setCustomNameVisible(true);
+            stand.setNoGravity(true);
+
+            var trinkets = TrinketsApi.getAttachment(stand);
+            for (CosmeticItem ci : entry.getValue()) {
+                var inventory = trinkets.getInventory(ci.getCosmeticSlot().trinketsId());
+                if (inventory != null) {
+                    inventory.setItem(0, new ItemStack(ci));
+                }
+            }
+
+            level.addFreshEntity(stand);
+            standIdx++;
+        }
+
+        final int totalStands = standIdx;
+        final int totalItems = allItems.size();
+        final int totalChests = chestsNeeded;
+        ctx.getSource().sendSuccess(() -> Component.literal(
+            "Spawned " + totalStands + " armor stands (" + sets.size() + " sets) and " +
+            totalChests + " chest(s) with all " + totalItems + " vesture items."), false);
+        return 1;
     }
 }

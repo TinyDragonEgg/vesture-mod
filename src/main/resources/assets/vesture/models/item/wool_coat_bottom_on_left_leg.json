@@ -1,7 +1,7 @@
-﻿{
+{
     "parent":  "vesture:item/template_player_left_leg",
     "textures":  {
-                     "layer0":  "vesture:item/equipment/villager_shepherd",
-                     "layer1":  "vesture:item/equipment/villager_shepherd_overlay"
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/villager_shepherd",
+                     "layer1":  "vesture:item/equipment/humanoid_leggings/villager_shepherd_overlay"
                  }
 }

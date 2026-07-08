@@ -1,0 +1,55 @@
+{
+  "required": true,
+  "package": "eu.pb4.trinkets.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "mixinextras": {
+    "minVersion": "0.5.0"
+  },
+  "mixins": [
+    "EnchantmentDefinitionMixin",
+    "EnchantmentHelperMixin",
+    "InventoryMenuMixin",
+    "InventoryMixin",
+    "ItemMixin",
+    "LivingEntityMixin",
+    "PlayerListMixin",
+    "ServerEntityMixin",
+    "ServerGamePacketListenerImplMixin",
+    "ServerPlayerMixin",
+    "accessor.AbstractedContainerMenuAccessor",
+    "behaviour.LivingEntityMixin",
+    "behaviour.PiglinAiMixin",
+    "client.accessor.CreativeModeInventoryScreenAccessor",
+    "datafixer.V1460Mixin"
+  ],
+  "client": [
+    "client.AbstractContainerScreenMixin",
+    "client.AbstractWidgetMixin",
+    "client.ClientPacketListenerMixin",
+    "client.CreativeModeInventoryScreenMixin",
+    "client.accessor.EquipmentClientInfoAccessor",
+    "client.accessor.EquipmentLayerRendererAccessor",
+    "client.InventoryScreenMixin",
+    "client.accessor.ItemPickerMenuAccessor",
+    "client.accessor.ModelPartAccessor",
+    "client.RecipeBookScreenMixin",
+    "client.abi.TrinketRendererMixin",
+    "client.accessor.CreativeSlotAccessor",
+    "client.accessor.LivingEntityAccessor",
+    "client.accessor.RecipeBookScreenAccessor",
+    "client.behaviour.ClientPacketListenerMixin",
+    "client.render.AvatarRendererMixin",
+    "client.render.CapeLayerMixin",
+    "client.render.EquipmentLayerRendererMixin",
+    "client.render.HumanoidArmorLayerMixin",
+    "client.render.LivingEntityRendererMixin",
+    "client.render.LivingEntityStateRenderMixin",
+    "client.render.ModelBakeryMixin",
+    "client.render.ModelManagerMixin",
+    "client.render.ModelMixin",
+    "client.render.WingsLayerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

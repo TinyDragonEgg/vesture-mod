@@ -1,7 +1,7 @@
-﻿{
+{
     "parent":  "vesture:item/template_player_left_leg",
     "textures":  {
-                     "layer0":  "vesture:item/equipment/sunny",
+                     "layer0":  "vesture:item/equipment/humanoid_leggings/sunny",
                      "layer1":  "vesture:item/equipment/sunny_default"
                  }
 }
